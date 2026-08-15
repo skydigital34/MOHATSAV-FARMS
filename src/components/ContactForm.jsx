@@ -31,7 +31,7 @@ export default function ContactForm({ selectedEstimate }) {
         guestCount: selectedEstimate.guestCount,
         packageTier: selectedEstimate.packageName.toLowerCase().includes('standard') ? 'standard' : 
                      selectedEstimate.packageName.toLowerCase().includes('royal') ? 'royal' : 'premium',
-        message: `Estimated package details from calculator:\n• Package: ${selectedEstimate.packageName}\n• Guest Count: ${selectedEstimate.guestCount}\n• ${addonsStr}\n• Total Cost: ₹${selectedEstimate.totalEstimate.toLocaleString('en-IN')}\n\nHi Aadrika Hall, I would like to check availability and finalize booking details.`
+        message: `Estimated package details from calculator:\n• Package: ${selectedEstimate.packageName}\n• Guest Count: ${selectedEstimate.guestCount}\n• ${addonsStr}\n• Total Cost: ₹${selectedEstimate.totalEstimate.toLocaleString('en-IN')}\n\nHi Mahotsav Farms, I would like to check availability and finalize booking details.`
       }));
     }
   }, [selectedEstimate]);
@@ -163,7 +163,7 @@ export default function ContactForm({ selectedEstimate }) {
             <div className="map-preview-box">
               {/* Premium abstract card pointing to actual Google Map */}
               <a 
-                href="https://maps.google.com/?q=Aadrika+Hall+Thudiyalur+Coimbatore" 
+                href="https://maps.google.com/?q=Mahotsav+Farms+Thudiyalur+Coimbatore" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="map-glass-card"

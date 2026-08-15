@@ -88,7 +88,7 @@ export default function MobileMenu({ isOpen, onClose }) {
           >
             {/* Drawer Header */}
             <div className="drawer-header">
-              <span className="drawer-brand">AADRIKA</span>
+              <span className="drawer-brand">MAHOTSAV FARMS</span>
               <motion.button 
                 className="btn-drawer-close"
                 onClick={onClose}

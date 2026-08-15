@@ -4,11 +4,11 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 
 const FAQS = [
   {
-    q: "What is the guest seating and floating capacity of Aadrika Hall?",
-    a: "Aadrika Hall is optimized to comfortably accommodate up to 300 guests for seating arrangements. For floating crowd events, we can accommodate up to 450 guests throughout the event timeline."
+    q: "What is the guest seating and floating capacity of Mahotsav Farms?",
+    a: "Mahotsav Farms is optimized to comfortably accommodate up to 300 guests for seating arrangements. For floating crowd events, we can accommodate up to 450 guests throughout the event timeline."
   },
   {
-    q: "Does Aadrika Hall allow outside catering services?",
+    q: "Does Mahotsav Farms allow outside catering services?",
     a: "We offer professional in-house multi-cuisine vegetarian catering (including South Indian leaf service, North Indian buffets, and Chinese options) prepared by our expert culinary team. To ensure food safety and quality, outside catering services are not permitted."
   },
   {
@@ -54,7 +54,7 @@ export default function FAQ() {
             <span className="divider-dot"></span>
           </div>
           <p className="section-desc-center">
-            Got questions about your upcoming event? Here are the most common inquiries regarding capacity, catering, and operational guidelines at Aadrika Hall.
+            Got questions about your upcoming event? Here are the most common inquiries regarding capacity, catering, and operational guidelines at Mahotsav Farms.
           </p>
         </div>
 

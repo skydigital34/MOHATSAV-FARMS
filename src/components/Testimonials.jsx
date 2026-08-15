@@ -4,7 +4,7 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
-    quote: "The catering service at Aadrika was outstanding. Our wedding guests could not stop talking about the delicious traditional vegetarian food! The staff showed incredibly warm hospitality throughout the event.",
+    quote: "The catering service at Mahotsav Farms was outstanding. Our wedding guests could not stop talking about the delicious traditional vegetarian food! The staff showed incredibly warm hospitality throughout the event.",
     author: "Rajesh Kumar",
     location: "Coimbatore",
     eventType: "Wedding Celebrations"
@@ -106,7 +106,7 @@ export default function Testimonials() {
               <Quote className="divider-icon" size={14} />
             </div>
             <p className="section-desc">
-              Nothing makes us happier than hearing the success stories of couples, families, and organizations who chose Aadrika Hall to host their special moments.
+              Nothing makes us happier than hearing the success stories of couples, families, and organizations who chose Mahotsav Farms to host their special moments.
             </p>
 
             <div className="slider-controls-row">

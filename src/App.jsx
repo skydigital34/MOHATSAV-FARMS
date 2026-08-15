@@ -138,25 +138,27 @@ function App() {
       <div className="hero-container" id="home">
         {/* Background Static Image (appears when video ends) */}
         <img 
-          src="/day.png" 
-          alt="Aadrika Hall" 
+          src="/hero/day2.png" 
+          alt="Mahotsav Farms" 
           className={`hero-background-image ${videoEnded ? 'visible' : ''}`}
         />
 
         {/* Background Hover Image (appears when hero buttons are hovered) */}
         <img 
-          src="/night.png" 
-          alt="Aadrika Hall Night" 
+          src="/night2.png" 
+          alt="Mahotsav Farms Night" 
           className={`hero-background-night ${isButtonHovered ? 'visible' : ''}`}
         />
 
         {/* Background Autoplay Video */}
         <video 
           className={`hero-video ${videoEnded ? 'fade-out' : ''}`}
-          src="/hero.mp4" 
+          src="/mahotsavj.mp4" 
           autoPlay 
           muted 
           playsInline
+          onLoadedMetadata={(e) => { e.currentTarget.playbackRate = 1.5; }}
+          onPlay={(e) => { e.currentTarget.playbackRate = 1.5; }}
           onEnded={() => setVideoEnded(true)}
         />
         
@@ -178,7 +180,7 @@ function App() {
           style={{ pointerEvents: showContent ? 'auto' : 'none' }}
         >
           <div className="logo-container">
-            <span>AADRIKA</span>
+            <span>MAHOTSAV FARMS</span>
           </div>
 
           <nav className="nav-links">

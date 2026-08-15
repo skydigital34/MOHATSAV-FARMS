@@ -28,10 +28,10 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Info */}
           <div className="footer-brand-column">
-            <h3 className="footer-brand-logo">AADRIKA</h3>
+            <h3 className="footer-brand-logo">MAHOTSAV FARMS</h3>
             <p className="footer-brand-tagline">Crafting the Art of Celebration</p>
             <p className="footer-about-text">
-              Coimbatore's premier mid-tier event hall specializing in intimate luxury weddings, engagements, and corporate celebrations. Providing seamless, warm hospitality and exceptional vegetarian culinary experiences.
+              Coimbatore's premier mid-tier event venue specializing in intimate luxury weddings, engagements, and corporate celebrations. Providing seamless, warm hospitality and exceptional vegetarian culinary experiences.
             </p>
             
             {/* Social Icons */}
@@ -90,7 +90,7 @@ export default function Footer() {
               </li>
               <li>
                 <Mail className="contact-icon" size={16} />
-                <a href="mailto:bookings@aadrikahall.com" className="footer-email">bookings@aadrikahall.com</a>
+                <a href="mailto:bookings@mahotsavfarms.com" className="footer-email">bookings@mahotsavfarms.com</a>
               </li>
               <li>
                 <Clock className="contact-icon" size={16} />
@@ -103,7 +103,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <div className="footer-copyright">
-            © {currentYear} Aadrika Hall. All Rights Reserved. Coimbatore, India.
+            © {currentYear} Mahotsav Farms. All Rights Reserved. Coimbatore, India.
           </div>
           <div className="footer-credit">
             Crafted with <Heart size={10} className="heart-icon" /> for Premium Events

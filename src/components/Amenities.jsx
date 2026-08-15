@@ -87,7 +87,7 @@ export default function Amenities() {
             <span className="divider-dot"></span>
           </div>
           <p className="section-desc-center">
-            Aadrika Hall is equipped with comprehensive modern amenities and professional services designed to minimize vendor coordination stress and make every celebration flawless.
+            Mahotsav Farms is equipped with comprehensive modern amenities and professional services designed to minimize vendor coordination stress and make every celebration flawless.
           </p>
         </div>
 
