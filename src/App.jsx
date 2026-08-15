@@ -150,10 +150,11 @@ function App() {
           className={`hero-background-night ${isButtonHovered ? 'visible' : ''}`}
         />
 
-        {/* Background Autoplay Video */}
+        {/* Background Autoplay Video (Plays FIRST on page load) */}
         <video 
           className={`hero-video ${videoEnded ? 'fade-out' : ''}`}
           src="/mahotsavj.mp4" 
+          preload="auto"
           autoPlay 
           muted 
           playsInline
