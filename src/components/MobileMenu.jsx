@@ -1,16 +1,18 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Instagram, Youtube } from 'lucide-react';
+import { X, Instagram, Facebook } from 'lucide-react';
 
 const MENU_LINKS = [
   { label: 'Home', targetId: 'home' },
-  { label: 'Curated Experiences', targetId: 'experiences-section' },
-  { label: 'Lodging & Rooms', targetId: 'accommodations-section' },
-  { label: 'Venue Amenities', targetId: 'amenities' },
+  { label: 'About Us', targetId: 'about' },
+  { label: 'What We Offer?', targetId: 'what-we-offer' },
+  { label: 'Perfect Venues', targetId: 'perfect-venues' },
+  { label: 'Facilities', targetId: 'amenities' },
+  { label: 'Ground Rules', targetId: 'ground-rules' },
   { label: 'Cost Estimator', targetId: 'pricing' },
-  { label: 'Guest Reviews', targetId: 'testimonials' },
-  { label: 'FAQs', targetId: 'faq' },
-  { label: 'Book Venue', targetId: 'contact' }
+  { label: 'Testimonials', targetId: 'testimonials' },
+  { label: 'FAQ', targetId: 'faq' },
+  { label: 'Contact Us', targetId: 'contact' }
 ];
 
 const overlayVariants = {
@@ -84,7 +86,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when tapping drawer itself
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
             <div className="drawer-header">
@@ -116,18 +118,13 @@ export default function MobileMenu({ isOpen, onClose }) {
 
             {/* Footer details in Drawer */}
             <div className="drawer-footer">
-              <span className="drawer-footer-tag">Coimbatore, India</span>
+              <span className="drawer-footer-tag">Veerakeralam, Coimbatore</span>
               <div className="drawer-social-row">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="drawer-social-link">
                   <Instagram size={16} />
                 </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="drawer-social-link">
-                  <Youtube size={16} />
-                </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="drawer-social-link">
-                  <svg viewBox="0 0 24 24" className="drawer-x-svg" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
+                <a href="#" className="drawer-social-link">
+                  <Facebook size={16} />
                 </a>
               </div>
             </div>

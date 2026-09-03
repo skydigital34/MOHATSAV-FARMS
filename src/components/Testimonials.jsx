@@ -4,40 +4,38 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
-    quote: "The catering service at Mahotsav Farms was outstanding. Our wedding guests could not stop talking about the delicious traditional vegetarian food! The staff showed incredibly warm hospitality throughout the event.",
-    author: "Rajesh Kumar",
+    quote: "Mahotsav Farms made our daughter's wedding reception truly magical! The open lawn with evening lighting and spacious AC hall gave our 800 guests complete comfort.",
+    author: "Priya Sharma",
+    role: "Happy Client",
     location: "Coimbatore",
-    eventType: "Wedding Celebrations"
+    eventType: "Wedding Reception"
   },
   {
-    quote: "A spacious and beautiful hall in Thudiyalur. It was very easy for all our guests to commute since it is right off the main road. The bridal rooms were clean and comfortable.",
-    author: "Meenakshi Sundaram",
+    quote: "Hosting our corporate BNI reunion here was a breeze. 150 cars parking space with 2 entrance gates meant zero traffic jams for our delegates. Highly recommend Sabari Hospitality!",
+    author: "Arvind Kumar",
+    role: "Happy Client",
+    location: "Veerakeralam",
+    eventType: "Corporate Reunion"
+  },
+  {
+    quote: "The AC bridal suites were clean, comfortable, and perfect for pre-ceremony makeup styling. The Ganesh Temple right at the entrance added a divine start to our traditional muhurtham.",
+    author: "Neha",
+    role: "Happy Client",
     location: "Coimbatore",
-    eventType: "Traditional Engagement"
+    eventType: "Marriage Ceremony"
   },
   {
-    quote: "Highly professional event planning support. We hosted our daughter's reception here. The stage setup was amazing, and their power backup system handled the lighting rigs seamlessly.",
-    author: "Suresh Vignesh",
-    location: "Vellakinar",
-    eventType: "Grand Reception"
-  },
-  {
-    quote: "Excellent budget-friendly premium hall. With their daily base rental and flexible catering packages, it is the best mid-tier venue options around Coimbatore. Strongly recommended!",
-    author: "Ramesh A.",
-    location: "Thudiyalur",
-    eventType: "Family Reunion"
-  },
-  {
-    quote: "Very accommodating staff and beautiful acoustics. The sound system and DJ setup were professional, and they managed the food service timing perfectly from start to finish.",
-    author: "Anjali Devi",
+    quote: "Best value banquet hall in Veerakeralam, Coimbatore! Transparent pricing for lawn and hall combos, excellent generator power backup, and super helpful event coordinators.",
+    author: "Radhika Patel",
+    role: "Happy Client",
     location: "Coimbatore",
-    eventType: "Corporate Meet"
+    eventType: "Ear Boring & Family Feast"
   }
 ];
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -56,7 +54,6 @@ export default function Testimonials() {
     setActiveIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
   };
 
-  // Variants for review sliding animation
   const slideVariants = {
     enter: (dir) => ({
       x: dir > 0 ? 100 : -100,
@@ -81,7 +78,7 @@ export default function Testimonials() {
         {/* Rating summary banner */}
         <div className="rating-summary-banner">
           <div className="justdial-logo-row">
-            <span className="platform-tag">Justdial</span>
+            <span className="platform-tag">Sabari Hospitality</span>
             <div className="stars-row">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={15} fill="#f5a623" color="#f5a623" />
@@ -89,24 +86,25 @@ export default function Testimonials() {
             </div>
           </div>
           <div className="rating-value-row">
-            <span className="rating-num">4.3</span>
+            <span className="rating-num">4.9</span>
             <span className="rating-max">/ 5</span>
-            <span className="reviews-count">based on 61 verified reviews</span>
+            <span className="reviews-count">based on verified event client reviews</span>
           </div>
         </div>
 
         <div className="testimonials-grid-layout">
           {/* Left panel: Info */}
           <div className="testimonials-info-panel">
-            <span className="section-tag">GUEST EXPERIENCES</span>
+            <span className="section-tag">TESTIMONIALS</span>
             <h2 className="section-title">
-              HEARD FROM OUR <span className="highlight-serif">CELEBRATIONS</span>
+              CLIENT TESTIMONIALS ABOUT OUR<br />
+              <span className="highlight-serif">EVENT VENUES & WEDDING HALL</span>
             </h2>
             <div className="header-divider">
               <Quote className="divider-icon" size={14} />
             </div>
             <p className="section-desc">
-              Nothing makes us happier than hearing the success stories of couples, families, and organizations who chose Mahotsav Farms to host their special moments.
+              Discover why families, couples, and corporate organizations across Coimbatore trust Mahotsav Farms to celebrate their most cherished occasions.
             </p>
 
             <div className="slider-controls-row">
@@ -142,7 +140,7 @@ export default function Testimonials() {
                     <div className="author-details">
                       <h4 className="author-name">{TESTIMONIALS[activeIndex].author}</h4>
                       <span className="author-meta">
-                        {TESTIMONIALS[activeIndex].eventType} • {TESTIMONIALS[activeIndex].location}
+                        {TESTIMONIALS[activeIndex].role} • {TESTIMONIALS[activeIndex].eventType}
                       </span>
                     </div>
                   </div>

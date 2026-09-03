@@ -4,33 +4,29 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 
 const FAQS = [
   {
-    q: "What is the guest seating and floating capacity of Mahotsav Farms?",
-    a: "Mahotsav Farms is optimized to comfortably accommodate up to 300 guests for seating arrangements. For floating crowd events, we can accommodate up to 450 guests throughout the event timeline."
+    q: "What types of events can be hosted in your event hall?",
+    a: "Mahotsav Farms hosts a wide spectrum of events including Marriage Functions, Wedding Receptions, Ear Boring Ceremonies (Khadha Kuthu), Birthday Parties, Baby Showers (Valaikappu), Puberty Functions, Family Reunions, BNI Networking Meets, and Corporate Conferences."
   },
   {
-    q: "Does Mahotsav Farms allow outside catering services?",
-    a: "We offer professional in-house multi-cuisine vegetarian catering (including South Indian leaf service, North Indian buffets, and Chinese options) prepared by our expert culinary team. To ensure food safety and quality, outside catering services are not permitted."
+    q: "How many people can your event hall accommodate?",
+    a: "Our indoor AC Banquet Hall comfortably seats 250 guests with a floating capacity of 500. Our outdoor Open Lawn seats 500 guests with a floating capacity of 1,000. Combined together as a Full Venue, Mahotsav Farms accommodates up to 1,500 total floating guests."
   },
   {
-    q: "Is parking available at the venue?",
-    a: "Yes, we have dedicated private parking spaces on the venue premises supporting up to 20 vehicles. There is also a safe passenger drop-off zone directly at the main entrance."
+    q: "What amenities are included with the hall rental?",
+    a: "The rental includes access to 5 AC rooms, on-site parking for up to 150 cars, 2 entrance gates for smooth valet flow, on-site Ganesh Temple, spacious dining hall, heavy-duty generator power backup, and dedicated venue maintenance staff."
   },
   {
-    q: "What accommodation is provided with the venue rental?",
-    a: "We provide 2 premium air-conditioned (AC) bridal suites for pre-ceremony preparations and overnight comfort. Additionally, multiple comfortable non-AC guest rooms are available on-site for immediate family members."
+    q: "Can I decorate the hall for my event?",
+    a: "Yes! We offer open decorator flexibilities. You are welcome to engage your preferred floral and stage decorators or choose from our panel of trusted event decor specialists to design customized themes for your stage, lawn lighting, and entrance arches."
   },
   {
-    q: "What are the standard venue rental durations and prices?",
-    a: "The standard venue rental base rate is ₹10,000 per day. Rental blocks run for 24 hours. Early check-in or extended clean-up durations can be negotiated based on hall availability."
-  },
-  {
-    q: "Are decorators and DJ services included in the base rate?",
-    a: "The base rate covers the hall rental and facilities setup. Decorators, AV sound systems, and DJ services can be integrated into your package through our preferred vendor network, or you can select them as add-ons in our interactive estimator."
+    q: "What is the booking process and rental fee?",
+    a: "Booking is confirmed upon receiving a 50% deposit. Rental fees are transparent and flexible: individual sessions start from ₹20,000 (morning) / ₹30,000 (evening) for the Hall or Lawn, up to ₹60,000 for a full 24-hour complete venue combo (Hall + Lawn + 5 AC Rooms). Individual AC rooms are priced at ₹2,500 + tax per day."
   }
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFAQ = (index) => {
     if (openIndex === index) {
@@ -46,15 +42,16 @@ export default function FAQ() {
         
         {/* Header Block */}
         <div className="section-header-center">
-          <span className="section-tag">COMMON QUESTIONS</span>
+          <span className="section-tag">FAQ</span>
           <h2 className="section-title">
-            FREQUENTLY ASKED <span className="highlight-serif">QUESTIONS</span>
+            EVERYTHING YOU NEED TO KNOW ABOUT<br />
+            <span className="highlight-serif">VENUE BOOKING IN COIMBATORE</span>
           </h2>
           <div className="header-divider-center">
             <span className="divider-dot"></span>
           </div>
           <p className="section-desc-center">
-            Got questions about your upcoming event? Here are the most common inquiries regarding capacity, catering, and operational guidelines at Mahotsav Farms.
+            Got questions about capacities, pricing, or operational rules? Here are clear answers to help you plan your celebration at Mahotsav Farms.
           </p>
         </div>
 

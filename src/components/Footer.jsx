@@ -1,16 +1,16 @@
 import React from 'react';
 import { 
   Instagram, 
-  Youtube, 
+  Facebook,
   MapPin, 
   Phone, 
   Mail, 
   Clock, 
-  Heart 
+  ExternalLink 
 } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   const handleScrollTo = (e, id) => {
     e.preventDefault();
@@ -29,9 +29,9 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="footer-brand-column">
             <h3 className="footer-brand-logo">MAHOTSAV FARMS</h3>
-            <p className="footer-brand-tagline">Crafting the Art of Celebration</p>
+            <p className="footer-brand-tagline">Mahotsav Venue to Celebrate • Sabari Hospitality</p>
             <p className="footer-about-text">
-              Coimbatore's premier mid-tier event venue specializing in intimate luxury weddings, engagements, and corporate celebrations. Providing seamless, warm hospitality and exceptional vegetarian culinary experiences.
+              Top event venue and party hall in Veerakeralam, Coimbatore featuring a 3,000 sq ft AC Banquet Hall and 8,000 sq ft Open Lawn for traditional weddings, receptions, and family milestones.
             </p>
             
             {/* Social Icons */}
@@ -39,62 +39,67 @@ export default function Footer() {
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="Instagram">
                 <Instagram size={16} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="YouTube">
-                <Youtube size={16} />
-              </a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="X">
-                {/* Official X logo SVG */}
-                <svg viewBox="0 0 24 24" className="social-x-svg" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a href="https://justdial.com" target="_blank" rel="noopener noreferrer" className="footer-social-link jd-badge" aria-label="JustDial">
-                JD
+              <a href="#" className="footer-social-link" aria-label="Facebook">
+                <Facebook size={16} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="footer-links-column">
-            <h4 className="footer-heading">Navigation</h4>
+            <h4 className="footer-heading">Quick Links</h4>
             <ul className="footer-links-list">
               <li><a href="#home" onClick={(e) => handleScrollTo(e, 'home')}>Home</a></li>
-              <li><a href="#experiences-section" onClick={(e) => handleScrollTo(e, 'experiences-section')}>Experiences</a></li>
-              <li><a href="#accommodations-section" onClick={(e) => handleScrollTo(e, 'accommodations-section')}>Guest Suites</a></li>
-              <li><a href="#amenities" onClick={(e) => handleScrollTo(e, 'amenities')}>Venue Amenities</a></li>
-              <li><a href="#pricing" onClick={(e) => handleScrollTo(e, 'pricing')}>Cost Calculator</a></li>
-              <li><a href="#testimonials" onClick={(e) => handleScrollTo(e, 'testimonials')}>Guest Reviews</a></li>
-              <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')}>FAQs</a></li>
-              <li><a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')}>Book Now</a></li>
+              <li><a href="#about" onClick={(e) => handleScrollTo(e, 'about')}>About Us</a></li>
+              <li><a href="#what-we-offer" onClick={(e) => handleScrollTo(e, 'what-we-offer')}>What We Offer?</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Perfect Venues</a></li>
+              <li><a href="#amenities" onClick={(e) => handleScrollTo(e, 'amenities')}>Facilities</a></li>
+              <li><a href="#ground-rules" onClick={(e) => handleScrollTo(e, 'ground-rules')}>Ground Rules</a></li>
+              <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')}>FAQ</a></li>
+              <li><a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')}>Contact Us</a></li>
+            </ul>
+          </div>
+
+          {/* Our Services */}
+          <div className="footer-links-column">
+            <h4 className="footer-heading">Our Services</h4>
+            <ul className="footer-links-list">
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Marriage Functions</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Wedding Receptions</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Ear Boring Ceremonies</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Birthday Parties</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Baby Shower / Valaikappu</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Social Activities</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Puberty Function</a></li>
             </ul>
           </div>
 
           {/* Contact Details */}
           <div className="footer-contact-column">
-            <h4 className="footer-heading">Contact Details</h4>
+            <h4 className="footer-heading">Get In Touch</h4>
             <ul className="footer-contact-list">
               <li>
                 <MapPin className="contact-icon" size={16} />
                 <address className="footer-address">
-                  VCS Nagar, Thudiyalur,<br />
-                  Vellakinar Pirivu, Coimbatore - 641029,<br />
+                  2W45+8M5, Ragavendra Garden,<br />
+                  Veerakeralam, Coimbatore - 641007,<br />
                   Tamil Nadu, India
                 </address>
               </li>
               <li>
                 <Phone className="contact-icon" size={16} />
                 <div className="footer-phones">
-                  <a href="tel:+919876543210">+91 98765 43210</a>
-                  <a href="tel:+919876543211">+91 98765 43211</a>
+                  <a href="tel:+919994157721">+91 99941 57721</a>
+                  <a href="tel:+919994157722">+91 99941 57722</a>
                 </div>
               </li>
               <li>
                 <Mail className="contact-icon" size={16} />
-                <a href="mailto:bookings@mahotsavfarms.com" className="footer-email">bookings@mahotsavfarms.com</a>
+                <a href="mailto:info@mahotsavfarms.com" className="footer-email">info@mahotsavfarms.com</a>
               </li>
               <li>
                 <Clock className="contact-icon" size={16} />
-                <span className="footer-hours">Daily Inquiry: 8:00 AM – 9:00 PM</span>
+                <span className="footer-hours">Daily Hours: 8:00 AM – 8:00 PM</span>
               </li>
             </ul>
           </div>
@@ -103,10 +108,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <div className="footer-copyright">
-            © {currentYear} Mahotsav Farms. All Rights Reserved. Coimbatore, India.
+            © Copyright - {currentYear} Mahotsav Farms. All rights reserved.
           </div>
           <div className="footer-credit">
-            Crafted with <Heart size={10} className="heart-icon" /> for Premium Events
+            Website Design & SEO By Xcodefix
           </div>
         </div>
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, Bed, Sparkles, Calculator, Calendar } from 'lucide-react';
+import { Home, Info, Gift, Sparkles, Calendar } from 'lucide-react';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home', icon: Home, targetId: 'home' },
-  { id: 'accommodations', label: 'Lodging', icon: Bed, targetId: 'accommodations-section' },
-  { id: 'amenities', label: 'Amenities', icon: Sparkles, targetId: 'amenities' },
-  { id: 'pricing', label: 'Estimator', icon: Calculator, targetId: 'pricing' },
+  { id: 'about', label: 'About', icon: Info, targetId: 'about' },
+  { id: 'what-we-offer', label: 'Offerings', icon: Gift, targetId: 'what-we-offer' },
+  { id: 'perfect-venues', label: 'Venues', icon: Sparkles, targetId: 'perfect-venues' },
   { id: 'contact', label: 'Book', icon: Calendar, targetId: 'contact' }
 ];
 

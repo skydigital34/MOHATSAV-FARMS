@@ -1,56 +1,56 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Utensils, 
-  Music, 
-  Sparkles, 
-  Zap, 
-  Bed, 
-  Accessibility, 
+  Building2, 
   Car, 
-  Calendar 
+  DoorOpen, 
+  Landmark, 
+  UtensilsCrossed, 
+  Bed, 
+  Zap, 
+  Sparkles 
 } from 'lucide-react';
 
 const amenityItems = [
   {
-    icon: Utensils,
-    title: 'Veg Multi-Cuisine Catering',
-    desc: 'Customizable pure vegetarian menu featuring traditional South Indian, North Indian, and international delicacies prepared by expert chefs.',
-  },
-  {
-    icon: Music,
-    title: 'Professional DJ & Sound',
-    desc: 'High-fidelity audio systems and DJ setup tailored to keep energy levels vibrant across all wedding and celebration events.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Ambient & Stage Lighting',
-    desc: 'Stunning professional stage lighting, spotlight systems, and elegant ambient illuminations to craft the perfect photo-ready mood.',
-  },
-  {
-    icon: Zap,
-    title: 'Full Power Backup',
-    desc: 'Heavy-duty power generators ensuring uninterrupted electricity backup for stages, air conditioning, and event lighting.',
+    icon: Building2,
+    title: 'AC Reception Hall',
+    desc: '3,000 sq ft spacious air-conditioned indoor hall featuring high ceilings, stage lighting, and acoustic comfort.',
   },
   {
     icon: Bed,
-    title: 'Bridal & Guest Lodging',
-    desc: '2 luxury AC suites for the bridal couple along with multiple non-AC guest rooms conveniently located on-premises.',
-  },
-  {
-    icon: Accessibility,
-    title: 'Wheelchair Accessibility',
-    desc: 'Fully wheelchair accessible entrances, pathways, and restrooms designed for the comfort of elderly and special-needs guests.',
+    title: '5 Guest & Bridal Rooms',
+    desc: '5 fully equipped AC and comfort rooms available on premises for bridal preparation and family relaxation.',
   },
   {
     icon: Car,
-    title: 'Secured Parking',
-    desc: 'Private parking space on-site supporting up to 20 vehicles with managed security and drop-off ease.',
+    title: 'Up to 150 Cars Parking',
+    desc: 'Extensive private parking area on venue premises supporting up to 150 cars with security supervision.',
   },
   {
-    icon: Calendar,
-    title: 'Event Management Team',
-    desc: 'Dedicated on-site coordinators assisting with decorator alignment, catering timelines, and day-of execution logistics.',
+    icon: DoorOpen,
+    title: '2 Entrance Gates',
+    desc: 'Dual gate access facilitating separate guest entry and valet vehicle movement to prevent traffic congestion.',
+  },
+  {
+    icon: Landmark,
+    title: '1 On-Site Ganesh Temple',
+    desc: 'Sacred Ganesh Temple located right at the venue entrance for auspicious pre-ceremony prayers and blessings.',
+  },
+  {
+    icon: UtensilsCrossed,
+    title: 'Spacious Dining Hall',
+    desc: 'Dedicated dining hall accommodating traditional South Indian leaf service and modern buffet counters.',
+  },
+  {
+    icon: Zap,
+    title: '100% Power Generator Backup',
+    desc: 'Heavy-duty power generator setup guaranteeing uninterrupted electricity for stage lighting, sound, and AC.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Eco-Friendly Open Lawn',
+    desc: '8,000 sq ft manicured green lawn surrounded by peaceful nature, perfect for evening lighting and receptions.',
   }
 ];
 
@@ -79,15 +79,16 @@ export default function Amenities() {
       <div className="section-container">
         {/* Header Block */}
         <div className="section-header-center">
-          <span className="section-tag">PREMIUM CONVENIENCES</span>
+          <span className="section-tag">FACILITIES & AMENITIES</span>
           <h2 className="section-title">
-            VIBRANT EVENTS, <span className="highlight-serif">SEAMLESS COMFORT</span>
+            PREMIUM FACILITIES FOR AN<br />
+            <span className="highlight-serif">UNFORGETTABLE EVENT IN COIMBATORE</span>
           </h2>
           <div className="header-divider-center">
             <span className="divider-dot"></span>
           </div>
           <p className="section-desc-center">
-            Mahotsav Farms is equipped with comprehensive modern amenities and professional services designed to minimize vendor coordination stress and make every celebration flawless.
+            Mahotsav Farms is engineered with world-class facilities to support grand weddings, receptions, and traditional family milestones without operational stress.
           </p>
         </div>
 
