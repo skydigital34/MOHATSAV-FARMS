@@ -5,40 +5,37 @@ import { Building2, Trees, Bed, Sparkles, ArrowRight, Check } from 'lucide-react
 const offers = [
   {
     id: 'hall',
-    title: 'AC Banquet Hall',
-    subTitle: '3,000 SQ. FT. INDOOR SPACE',
+    title: 'AC INDOOR HALL',
     icon: Building2,
     bgImg: '/villa_arched.png',
     desc: 'Spacious air-conditioned indoor hall featuring elegant lighting, raised stage area, and premium acoustics for wedding ceremonies, stage programs, and receptions.',
-    capacity: '250 Seated / 500 Floating',
+    capacity: '200 Seated / 350 Floating',
     pricing: [
-      { label: 'Full Day (24 Hours)', price: '₹50,000' },
-      { label: 'Morning Session', price: '₹20,000' },
-      { label: 'Evening Session', price: '₹30,000' }
+      { label: 'Full Day (24 Hours)', price: '₹30,000' },
+      { label: 'Morning Session', price: '₹15,000' },
+      { label: 'Evening Session', price: '₹15,000' }
     ]
   },
   {
     id: 'lawn',
-    title: 'Open Party Lawn',
-    subTitle: '8,000 SQ. FT. LUSH OUTDOOR LAWN',
+    title: 'LUSH OUTDOOR LAWN',
     icon: Trees,
     bgImg: '/ocean_card.png',
     desc: 'Extensive manicured green lawn surrounded by palms—ideal for grand evening receptions, open-sky buffet dining, live music, and festive gatherings.',
-    capacity: '500 Seated / 1,000 Floating',
+    capacity: '400 Seated / 800 Floating',
     pricing: [
-      { label: 'Full Day (24 Hours)', price: '₹50,000' },
+      { label: 'Full Day (24 Hours)', price: '₹40,000' },
       { label: 'Morning Session', price: '₹20,000' },
-      { label: 'Evening Session', price: '₹40,000' }
+      { label: 'Evening Session', price: '₹20,000' }
     ]
   },
   {
     id: 'rooms',
     title: 'AC Guest Rooms',
-    subTitle: '5 LUXURY PREMISES ROOMS',
     icon: Bed,
     bgImg: '/suites_card.png',
     desc: 'Comfortable air-conditioned rooms designed with full-length vanity mirrors, private attached bathrooms, and relaxation lounges for the bride, groom, and family.',
-    capacity: '5 Air-Conditioned Rooms Available',
+    capacity: '4 Air-Conditioned Rooms Available (2 Guest & 2 Bridal)',
     pricing: [
       { label: 'Daily Room Rate', price: '₹2,500 + tax / room' }
     ]
@@ -46,15 +43,14 @@ const offers = [
   {
     id: 'full-venue',
     title: 'Full Venue Combo',
-    subTitle: 'HALL + LAWN + 5 AC ROOMS',
     icon: Sparkles,
     bgImg: '/pool_preview.png',
-    desc: 'The ultimate celebration package! Exclusive access to the entire 3,000 sq ft hall, 8,000 sq ft lawn, dining area, and 5 AC rooms for a seamless grand event.',
-    capacity: 'Up to 1,500 Total Guests',
+    desc: 'The ultimate celebration package! Exclusive access to the entire 3,000 sq ft hall, 8,000 sq ft lawn, dining area, and 4 AC rooms for a seamless grand event.',
+    capacity: 'Up to 1,200 Total Guests',
     pricing: [
-      { label: 'Full 24-Hour Venue Package', price: '₹60,000' },
+      { label: 'Full 24-Hour Venue Package', price: '₹70,000' },
       { label: 'Morning Session Combo', price: '₹35,000' },
-      { label: 'Evening Session Combo', price: '₹50,000' }
+      { label: 'Evening Session Combo', price: '₹35,000' }
     ],
     isPopular: true
   }
@@ -111,7 +107,6 @@ export default function WhatWeOffer() {
                     <Icon size={22} />
                   </div>
                   <div className="offer-card-title-box">
-                    <span className="offer-subtitle">{offer.subTitle}</span>
                     <h3 className="offer-title">{offer.title}</h3>
                   </div>
                 </div>

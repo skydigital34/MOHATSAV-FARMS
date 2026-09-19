@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="footer-brand-column">
             <h3 className="footer-brand-logo">MAHOTSAV FARMS</h3>
-            <p className="footer-brand-tagline">Mahotsav Venue to Celebrate • Sabari Hospitality</p>
+            <p className="footer-brand-tagline">Mahotsav Venue to Celebrate • Pinnacle's Events</p>
             <p className="footer-about-text">
               Top event venue and party hall in Veerakeralam, Coimbatore featuring a 3,000 sq ft AC Banquet Hall and 8,000 sq ft Open Lawn for traditional weddings, receptions, and family milestones.
             </p>
@@ -90,7 +90,6 @@ export default function Footer() {
                 <Phone className="contact-icon" size={16} />
                 <div className="footer-phones">
                   <a href="tel:+919994157721">+91 99941 57721</a>
-                  <a href="tel:+919994157722">+91 99941 57722</a>
                 </div>
               </li>
               <li>

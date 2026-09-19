@@ -11,14 +11,14 @@ const TESTIMONIALS = [
     eventType: "Wedding Reception"
   },
   {
-    quote: "Hosting our corporate BNI reunion here was a breeze. 150 cars parking space with 2 entrance gates meant zero traffic jams for our delegates. Highly recommend Sabari Hospitality!",
+    quote: "Hosting our corporate BNI reunion here was a breeze. 100 cars parking space with 2 entrance gates meant zero traffic jams for our delegates. Highly recommend Pinnacle's Events!",
     author: "Arvind Kumar",
     role: "Happy Client",
     location: "Veerakeralam",
     eventType: "Corporate Reunion"
   },
   {
-    quote: "The AC bridal suites were clean, comfortable, and perfect for pre-ceremony makeup styling. The Ganesh Temple right at the entrance added a divine start to our traditional muhurtham.",
+    quote: "The AC bridal suites were clean, comfortable, and perfect for pre-ceremony makeup styling. The spacious lawn and elegant indoor hall added a divine start to our traditional muhurtham.",
     author: "Neha",
     role: "Happy Client",
     location: "Coimbatore",
@@ -78,7 +78,7 @@ export default function Testimonials() {
         {/* Rating summary banner */}
         <div className="rating-summary-banner">
           <div className="justdial-logo-row">
-            <span className="platform-tag">Sabari Hospitality</span>
+            <span className="platform-tag">Pinnacle's Events</span>
             <div className="stars-row">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={15} fill="#f5a623" color="#f5a623" />

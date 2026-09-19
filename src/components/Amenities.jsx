@@ -4,7 +4,7 @@ import {
   Building2, 
   Car, 
   DoorOpen, 
-  Landmark, 
+  ChefHat, 
   UtensilsCrossed, 
   Bed, 
   Zap, 
@@ -19,13 +19,13 @@ const amenityItems = [
   },
   {
     icon: Bed,
-    title: '5 Guest & Bridal Rooms',
-    desc: '5 fully equipped AC and comfort rooms available on premises for bridal preparation and family relaxation.',
+    title: '2 Guest & 2 Bridal Rooms',
+    desc: '4 fully equipped AC rooms (2 guest rooms and 2 bridal rooms) available on premises for bridal preparation and family relaxation.',
   },
   {
     icon: Car,
-    title: 'Up to 150 Cars Parking',
-    desc: 'Extensive private parking area on venue premises supporting up to 150 cars with security supervision.',
+    title: 'Up to 100 Cars Parking',
+    desc: 'Extensive private parking area on venue premises supporting up to 100 cars with security supervision.',
   },
   {
     icon: DoorOpen,
@@ -33,9 +33,9 @@ const amenityItems = [
     desc: 'Dual gate access facilitating separate guest entry and valet vehicle movement to prevent traffic congestion.',
   },
   {
-    icon: Landmark,
-    title: '1 On-Site Ganesh Temple',
-    desc: 'Sacred Ganesh Temple located right at the venue entrance for auspicious pre-ceremony prayers and blessings.',
+    icon: ChefHat,
+    title: 'Modern Cooking & Catering Area',
+    desc: 'Spacious, hygienic kitchen space equipped for large-scale traditional cooking and live food counters.',
   },
   {
     icon: UtensilsCrossed,
@@ -81,7 +81,7 @@ export default function Amenities() {
         <div className="section-header-center">
           <span className="section-tag">FACILITIES & AMENITIES</span>
           <h2 className="section-title">
-            PREMIUM FACILITIES FOR AN<br />
+            FACILITIES FOR AN<br />
             <span className="highlight-serif">UNFORGETTABLE EVENT IN COIMBATORE</span>
           </h2>
           <div className="header-divider-center">

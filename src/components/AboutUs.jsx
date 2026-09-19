@@ -26,7 +26,7 @@ const processSteps = [
   {
     step: '03',
     title: 'Seamless Execution',
-    desc: 'Our dedicated Sabari Hospitality team handles on-site setup, catering timing, and event logistics.'
+    desc: "Our dedicated Pinnacle's Events team handles on-site setup, catering timing, and event logistics."
   },
   {
     step: '04',
@@ -56,7 +56,7 @@ export default function AboutUs() {
             <Compass className="divider-icon-center" size={14} />
           </div>
           <p className="section-desc-center">
-            Managed by Sabari Hospitality, Mahotsav Venue offers an exquisite blend of a spacious air-conditioned banquet hall and a lush open lawn—designed for perfection across traditional weddings, receptions, and special family gatherings.
+            Managed by Pinnacle's Events, Mahotsav Venue offers an exquisite blend of a spacious air-conditioned banquet hall and a lush open lawn—designed for perfection across traditional weddings, receptions, and special family gatherings.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function AboutUs() {
           <div className="about-feature-box">
             <div className="about-badge">
               <ShieldCheck size={18} className="badge-icon" />
-              <span>SABARI HOSPITALITY MANAGEMENT</span>
+              <span>PINNACLE'S EVENTS MANAGEMENT</span>
             </div>
 
             <h3 className="about-subheading">
@@ -119,18 +119,17 @@ export default function AboutUs() {
               <div className="cap-header">
                 <Users className="cap-icon" size={24} />
                 <div>
-                  <span className="cap-tag">AC BANQUET HALL</span>
-                  <h4 className="cap-title">3,000 SQ FT INDOOR HALL</h4>
+                  <h4 className="cap-title">3,000 SQ FT INDOOR AC HALL</h4>
                 </div>
               </div>
               <div className="cap-nums">
                 <div className="cap-stat">
-                  <span className="stat-value">250</span>
+                  <span className="stat-value">200</span>
                   <span className="stat-label">Seated Guests</span>
                 </div>
                 <div className="cap-divider"></div>
                 <div className="cap-stat">
-                  <span className="stat-value">500</span>
+                  <span className="stat-value">350</span>
                   <span className="stat-label">Floating Guests</span>
                 </div>
               </div>
@@ -140,18 +139,17 @@ export default function AboutUs() {
               <div className="cap-header">
                 <Leaf className="cap-icon" size={24} />
                 <div>
-                  <span className="cap-tag">OPEN AIR LAWN</span>
                   <h4 className="cap-title">8,000 SQ FT LUSH LAWN</h4>
                 </div>
               </div>
               <div className="cap-nums">
                 <div className="cap-stat">
-                  <span className="stat-value">500</span>
+                  <span className="stat-value">400</span>
                   <span className="stat-label">Seated Guests</span>
                 </div>
                 <div className="cap-divider"></div>
                 <div className="cap-stat">
-                  <span className="stat-value">1,000</span>
+                  <span className="stat-value">800</span>
                   <span className="stat-label">Floating Guests</span>
                 </div>
               </div>

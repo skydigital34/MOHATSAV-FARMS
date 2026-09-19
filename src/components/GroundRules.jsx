@@ -44,7 +44,7 @@ const rulesList = [
   {
     icon: Car,
     title: 'Parking & Traffic Flow',
-    desc: 'On-site parking accommodates up to 150 vehicles. 2 entrance/exit gates allow smooth drop-off and organized valet traffic.'
+    desc: 'On-site parking accommodates up to 100 vehicles. 2 entrance/exit gates allow smooth drop-off and organized valet traffic.'
   },
   {
     icon: ShieldCheck,

@@ -23,9 +23,9 @@ const eventTypes = [
     bgImg: '/villa_arched.png',
     shortDesc: 'Traditional wedding ceremonies with spacious stage arrangements, AC bridal preparation suites, and banana leaf dining.',
     highlights: [
-      '3,000 sq ft AC Banquet Hall seating 250+ guests',
+      '3,000 sq ft AC Banquet Hall seating 200+ guests',
       '2 AC Bridal Suites & 3 Guest Rooms on premises',
-      'On-site Ganesh Temple for traditional rituals',
+      'Dedicated commercial kitchen for traditional feast preparation',
       'Full 100% generator power backup for uninterrupted muhurtham'
     ],
     guidelines: [
@@ -41,11 +41,11 @@ const eventTypes = [
     tagline: 'Grand Open-Air & AC Receptions',
     icon: Sparkles,
     bgImg: '/pool_card.png',
-    shortDesc: 'Stunning evening celebrations combining our illuminated 8,000 sq ft lawn and indoor hall for floating crowds up to 1,000.',
+    shortDesc: 'Stunning evening celebrations combining our illuminated 8,000 sq ft lawn and indoor hall for floating crowds up to 800.',
     highlights: [
       'Illuminated lawn setup for open-sky buffet dining',
       'Professional sound & DJ staging capabilities',
-      'Spacious parking accommodating up to 150 cars',
+      'Spacious parking accommodating up to 100 cars',
       'Multiple entrance gates for easy guest flow'
     ],
     guidelines: [
@@ -99,7 +99,7 @@ const eventTypes = [
     highlights: [
       'Peaceful green surroundings with soothing acoustics',
       'Wheelchair accessible ramps and comfortable seating',
-      'Ganesh Temple blessings on venue premises'
+      'Spacious family seating and comfortable event ambiance'
     ],
     guidelines: [
       'Flexible booking duration options for morning/afternoon functions',
@@ -116,7 +116,7 @@ const eventTypes = [
     highlights: [
       'Podium, microphone, and presentation screen connectivity',
       'Flexible seating configurations (theater, cluster, or banquet)',
-      'High capacity parking for 150 cars with security management'
+      'High capacity parking for 100 cars with security management'
     ],
     guidelines: [
       'Pre-booking options available for recurring corporate reservations',

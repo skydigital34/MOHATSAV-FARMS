@@ -5,15 +5,15 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 const FAQS = [
   {
     q: "What types of events can be hosted in your event hall?",
-    a: "Mahotsav Farms hosts a wide spectrum of events including Marriage Functions, Wedding Receptions, Ear Boring Ceremonies (Khadha Kuthu), Birthday Parties, Baby Showers (Valaikappu), Puberty Functions, Family Reunions, BNI Networking Meets, and Corporate Conferences."
+    a: "Mahotsav Farms hosts a wide spectrum of events including Marriage Functions, Wedding Receptions, Ear Boring Ceremonies (Khadha Kuthu), Birthday Parties, Baby Showers (Valaikappu), Puberty Functions, Family Reunions, BNI Networking Meets, Rotary Club Events, and Corporate Events."
   },
   {
     q: "How many people can your event hall accommodate?",
-    a: "Our indoor AC Banquet Hall comfortably seats 250 guests with a floating capacity of 500. Our outdoor Open Lawn seats 500 guests with a floating capacity of 1,000. Combined together as a Full Venue, Mahotsav Farms accommodates up to 1,500 total floating guests."
+    a: "Our indoor AC Banquet Hall comfortably seats 200 guests with a floating capacity of 350. Our outdoor Open Lawn seats 400 guests with a floating capacity of 800. Combined together as a Full Venue, Mahotsav Farms accommodates up to 1,200 total floating guests."
   },
   {
     q: "What amenities are included with the hall rental?",
-    a: "The rental includes access to 5 AC rooms, on-site parking for up to 150 cars, 2 entrance gates for smooth valet flow, on-site Ganesh Temple, spacious dining hall, heavy-duty generator power backup, and dedicated venue maintenance staff."
+    a: "The rental includes access to 4 AC rooms (2 guest & 2 bridal), on-site parking for up to 100 cars, 2 entrance gates for smooth valet flow, modern kitchen & catering space, spacious dining hall, heavy-duty generator power backup, and dedicated venue maintenance staff."
   },
   {
     q: "Can I decorate the hall for my event?",
@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "What is the booking process and rental fee?",
-    a: "Booking is confirmed upon receiving a 50% deposit. Rental fees are transparent and flexible: individual sessions start from ₹20,000 (morning) / ₹30,000 (evening) for the Hall or Lawn, up to ₹60,000 for a full 24-hour complete venue combo (Hall + Lawn + 5 AC Rooms). Individual AC rooms are priced at ₹2,500 + tax per day."
+    a: "Booking is confirmed upon receiving a 50% deposit. Rental fees are transparent and flexible: individual sessions start from ₹15,000 (morning) / ₹15,000 (evening) for the Hall or Lawn, up to ₹70,000 for a full 24-hour complete venue combo (Hall + Lawn + 4 AC Rooms). Individual AC rooms are priced at ₹2,500 + tax per day."
   }
 ];
 

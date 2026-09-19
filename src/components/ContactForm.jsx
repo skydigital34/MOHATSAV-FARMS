@@ -121,7 +121,6 @@ export default function ContactForm({ selectedEstimate }) {
               <div className="detail-item">
                 <span className="detail-label"><Phone size={14} className="inline-icon" /> Call / WhatsApp</span>
                 <a href="tel:+919994157721" className="detail-link">+91 99941 57721</a>
-                <a href="tel:+919994157722" className="detail-link">+91 99941 57722</a>
               </div>
 
               <div className="detail-item">
