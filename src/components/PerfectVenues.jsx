@@ -11,7 +11,8 @@ import {
   CheckCircle2, 
   FileText, 
   ArrowRight,
-  ShieldAlert
+  ShieldAlert,
+  Award
 } from 'lucide-react';
 
 const eventTypes = [
@@ -139,6 +140,25 @@ const eventTypes = [
       'Fire-pit ritual safety guidelines must be followed on stage',
       'Decoration setup time window starting 4 hours prior to event'
     ]
+  },
+  {
+    id: 'retirement',
+    title: 'Retirement Party & Any Functions',
+    tagline: 'Milestone Felicitations & Bespoke Gatherings',
+    icon: Award,
+    bgImg: '/lounge_facility.png',
+    shortDesc: 'Celebrate remarkable career milestones, retirement felicitations, family jubilees, or any custom celebration in total comfort and grandeur.',
+    highlights: [
+      'Elevated stage with audio-visual connectivity & mic for tributes & speeches',
+      'Flexible seating setup: banquet, round table, or theater layout for 50 to 500+ guests',
+      'Exclusive AC banquet hall and serene outdoor lawn for celebration lunches & dinners',
+      'Dedicated AC dressing/rest suites for the honoree and close family members'
+    ],
+    guidelines: [
+      'Flexible half-day (morning/evening) or full-day session reservations available',
+      'Stage podium, projector screen & sound system coordination provided upon request',
+      'Outside professional caterers and specialized event decorators welcomed'
+    ]
   }
 ];
 
@@ -172,7 +192,7 @@ export default function PerfectVenues() {
           </p>
         </div>
 
-        {/* 7 Cards Grid */}
+        {/* 8 Cards Grid (4 per row) */}
         <div className="perfect-grid">
           {eventTypes.map((event) => {
             const Icon = event.icon;

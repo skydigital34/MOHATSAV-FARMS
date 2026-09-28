@@ -9,8 +9,8 @@ const MENU_LINKS = [
   { label: 'Perfect Venues', targetId: 'perfect-venues' },
   { label: 'Facilities', targetId: 'amenities' },
   { label: 'Ground Rules', targetId: 'ground-rules' },
-  { label: 'Cost Estimator', targetId: 'pricing' },
   { label: 'Testimonials', targetId: 'testimonials' },
+  { label: 'Blogs & Guides', targetId: 'blogs' },
   { label: 'FAQ', targetId: 'faq' },
   { label: 'Contact Us', targetId: 'contact' }
 ];

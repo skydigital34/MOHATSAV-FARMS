@@ -55,6 +55,7 @@ export default function Footer() {
               <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Perfect Venues</a></li>
               <li><a href="#amenities" onClick={(e) => handleScrollTo(e, 'amenities')}>Facilities</a></li>
               <li><a href="#ground-rules" onClick={(e) => handleScrollTo(e, 'ground-rules')}>Ground Rules</a></li>
+              <li><a href="#blogs" onClick={(e) => handleScrollTo(e, 'blogs')}>Blogs & Guides</a></li>
               <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')}>FAQ</a></li>
               <li><a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')}>Contact Us</a></li>
             </ul>
@@ -71,6 +72,7 @@ export default function Footer() {
               <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Baby Shower / Valaikappu</a></li>
               <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Social Activities</a></li>
               <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Puberty Function</a></li>
+              <li><a href="#perfect-venues" onClick={(e) => handleScrollTo(e, 'perfect-venues')}>Retirement & Any Functions</a></li>
             </ul>
           </div>
 

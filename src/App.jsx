@@ -8,16 +8,16 @@ import {
   ChevronDown 
 } from 'lucide-react';
 import './App.css';
-import heroReelVideo from './assets/heroreel.mp4';
+import heroReelVideo from './assets/mohatsav.mp4';
 
 import AboutUs from './components/AboutUs';
 import WhatWeOffer from './components/WhatWeOffer';
 import PerfectVenues from './components/PerfectVenues';
 import GroundRules from './components/GroundRules';
 import Amenities from './components/Amenities';
-import PricingCalculator from './components/PricingCalculator';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
+import BlogsSection from './components/BlogsSection';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import FloatingWidgets from './components/FloatingWidgets';
@@ -76,7 +76,6 @@ const sidebarVariants = {
 function App() {
   const [showContent, setShowContent] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
-  const [selectedEstimate, setSelectedEstimate] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -108,7 +107,7 @@ function App() {
       document.getElementById('perfect-venues'),
       document.getElementById('amenities'),
       document.getElementById('ground-rules'),
-      document.getElementById('pricing'),
+      document.getElementById('blogs'),
       document.getElementById('contact')
     ].filter(Boolean);
 
@@ -199,11 +198,13 @@ function App() {
                 <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Baby Shower</a>
                 <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Social Activities</a>
                 <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Puberty Function</a>
+                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Retirement & Any Functions</a>
               </div>
             </div>
 
             <a href="#amenities" className="nav-link" onClick={() => handleScrollTo('amenities')}>Facilities</a>
             <a href="#ground-rules" className="nav-link" onClick={() => handleScrollTo('ground-rules')}>Ground Rules</a>
+            <a href="#blogs" className="nav-link" onClick={() => handleScrollTo('blogs')}>Blogs & Guides</a>
             <a href="#contact" className="nav-link" onClick={() => handleScrollTo('contact')}>Contact Us</a>
           </nav>
 
@@ -372,17 +373,17 @@ function App() {
       {/* 6. GROUND RULES SECTION */}
       <GroundRules />
 
-      {/* 7. PRICING CALCULATOR */}
-      <PricingCalculator onSelectEstimate={setSelectedEstimate} />
-
-      {/* 8. TESTIMONIALS */}
+      {/* 7. TESTIMONIALS */}
       <Testimonials />
+
+      {/* 8. BLOGS & EVENT PLANNING GUIDES (DYNAMIC) */}
+      <BlogsSection />
 
       {/* 9. FAQ ACCORDION */}
       <FAQ />
 
       {/* 10. BOOKING INQUIRY FORM */}
-      <ContactForm selectedEstimate={selectedEstimate} />
+      <ContactForm />
 
       {/* 11. FOOTER */}
       <Footer />

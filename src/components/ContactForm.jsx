@@ -251,6 +251,7 @@ export default function ContactForm({ selectedEstimate }) {
                           <option value="Baby Shower">Baby Shower / Valaikappu</option>
                           <option value="Reunion Celebration">Reunion / Social Activities</option>
                           <option value="Puberty Function">Puberty Function</option>
+                          <option value="Retirement Party & Any Functions">Retirement Party & Any Functions</option>
                           <option value="Other">Other Events</option>
                         </select>
                       </div>
