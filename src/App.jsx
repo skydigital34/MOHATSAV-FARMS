@@ -8,6 +8,7 @@ import {
   ChevronDown 
 } from 'lucide-react';
 import './App.css';
+import heroReelVideo from './assets/heroreel.mp4';
 
 import AboutUs from './components/AboutUs';
 import WhatWeOffer from './components/WhatWeOffer';
@@ -73,7 +74,6 @@ const sidebarVariants = {
 };
 
 function App() {
-  const [videoEnded, setVideoEnded] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [selectedEstimate, setSelectedEstimate] = useState(null);
@@ -129,13 +129,6 @@ function App() {
     <div className="app-wrapper">
       {/* 1. HERO SECTION (KEPT INTACT AS REQUESTED) */}
       <div className="hero-container" id="home">
-        {/* Background Static Image (appears when video ends) */}
-        <img 
-          src="/hero/day2.png" 
-          alt="Mahotsav Farms" 
-          className={`hero-background-image ${videoEnded ? 'visible' : ''}`}
-        />
-
         {/* Background Hover Image */}
         <img 
           src="/night2.png" 
@@ -145,22 +138,21 @@ function App() {
 
         {/* Background Autoplay Video */}
         <video 
-          className={`hero-video ${videoEnded ? 'fade-out' : ''}`}
-          src="/mahotsavj.mp4" 
+          className="hero-video"
+          src={heroReelVideo} 
+          poster="/hero/day2.png"
           preload="auto"
           autoPlay 
+          loop
           muted 
           playsInline
-          onLoadedMetadata={(e) => { e.currentTarget.playbackRate = 1.5; }}
-          onPlay={(e) => { e.currentTarget.playbackRate = 1.5; }}
-          onEnded={() => setVideoEnded(true)}
         />
         
         {/* Dark overlay */}
         <div className="video-overlay"></div>
 
         {/* Left fading glass panel */}
-        <div className={`left-glass-panel ${videoEnded ? 'visible' : ''}`}></div>
+        <div className={`left-glass-panel ${showContent ? 'visible' : ''}`}></div>
 
         {/* Background ambient glow */}
         <div className="hero-ambient-glow"></div>
