@@ -9,14 +9,18 @@ import {
   ExternalLink 
 } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   const currentYear = 2026;
 
   const handleScrollTo = (e, id) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (onNavigate) {
+      onNavigate(id);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 

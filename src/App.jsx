@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 import { 
   ArrowUpRight, 
   ArrowDown, 
+  ArrowLeft,
   Instagram, 
   Youtube, 
   ChevronDown 
 } from 'lucide-react';
 import './App.css';
-import heroReelVideo from './assets/mohatsav.mp4';
+import heroReelVideo from './assets/heroreel.mp4';
 
 import AboutUs from './components/AboutUs';
 import WhatWeOffer from './components/WhatWeOffer';
@@ -78,6 +79,27 @@ function App() {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [currentView, setCurrentView] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.hash === '#blogs') {
+      return 'blogs';
+    }
+    return 'landing';
+  });
+
+  // Listen to hash changes for browser forward/back buttons
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#blogs') {
+        setCurrentView('blogs');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else {
+        setCurrentView('landing');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -107,7 +129,6 @@ function App() {
       document.getElementById('perfect-venues'),
       document.getElementById('amenities'),
       document.getElementById('ground-rules'),
-      document.getElementById('blogs'),
       document.getElementById('contact')
     ].filter(Boolean);
 
@@ -117,17 +138,109 @@ function App() {
       clearTimeout(timer);
       sections.forEach(s => observer.unobserve(s));
     };
-  }, []);
+  }, [currentView]);
 
-  const handleScrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigate = (targetId) => {
+    if (targetId === 'blogs') {
+      setCurrentView('blogs');
+      window.history.pushState(null, '', '#blogs');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (currentView !== 'landing') {
+      setCurrentView('landing');
+      window.history.pushState(null, '', `#${targetId}`);
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 120);
+    } else {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
     <div className="app-wrapper">
-      {/* 1. HERO SECTION (KEPT INTACT AS REQUESTED) */}
-      <div className="hero-container" id="home">
+      {currentView === 'blogs' ? (
+        <div className="dynamic-blogs-view-page">
+          {/* Dynamic Top Bar for Blogs Section */}
+          <header className="dynamic-blogs-topbar">
+            <div className="dynamic-blogs-topbar-inner">
+              <button 
+                type="button"
+                className="btn-dynamic-back"
+                onClick={() => handleNavigate('home')}
+              >
+                <ArrowLeft size={16} />
+                <span>Back to Main Site</span>
+              </button>
+
+              <div 
+                className="logo-container" 
+                onClick={() => handleNavigate('home')}
+                style={{ cursor: 'pointer' }}
+              >
+                <span>MAHOTSAV FARMS</span>
+              </div>
+
+              <div className="dynamic-topbar-actions">
+                <button 
+                  className="btn-nav-reserve"
+                  onClick={() => handleNavigate('contact')}
+                >
+                  Book Now
+                  <span className="arrow-circle">
+                    <ArrowUpRight size={12} />
+                  </span>
+                </button>
+                
+                <div 
+                  className="bento-menu-btn" 
+                  title="Menu"
+                  onClick={() => setIsMobileMenuOpen(true)}
+                >
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                  <div className="bento-dot"></div>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <main className="dynamic-blogs-main-wrapper">
+            <BlogsSection 
+              onBackToHome={() => handleNavigate('home')}
+              onBookVenue={() => handleNavigate('contact')}
+              isDynamicView={true}
+            />
+          </main>
+
+          <Footer onNavigate={handleNavigate} />
+          <FloatingWidgets showContent={true} />
+          <MobileMenu 
+            isOpen={isMobileMenuOpen} 
+            onClose={() => setIsMobileMenuOpen(false)} 
+            onNavigate={handleNavigate}
+          />
+        </div>
+      ) : (
+        <>
+          {/* 1. HERO SECTION (KEPT INTACT AS REQUESTED) */}
+          <div className="hero-container" id="home">
         {/* Background Hover Image */}
         <img 
           src="/night2.png" 
@@ -164,54 +277,54 @@ function App() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ pointerEvents: showContent ? 'auto' : 'none' }}
         >
-          <div className="logo-container" onClick={() => handleScrollTo('home')}>
+          <div className="logo-container" onClick={() => handleNavigate('home')}>
             <span>MAHOTSAV FARMS</span>
           </div>
 
           <nav className="nav-links">
-            <a href="#home" className="nav-link" onClick={() => handleScrollTo('home')}>Home</a>
-            <a href="#about" className="nav-link" onClick={() => handleScrollTo('about')}>About Us</a>
+            <a href="#home" className="nav-link" onClick={() => handleNavigate('home')}>Home</a>
+            <a href="#about" className="nav-link" onClick={() => handleNavigate('about')}>About Us</a>
             
             {/* What We Offer Dropdown */}
             <div className="nav-item-dropdown">
-              <a href="#what-we-offer" className="nav-link dropdown-trigger" onClick={() => handleScrollTo('what-we-offer')}>
+              <a href="#what-we-offer" className="nav-link dropdown-trigger" onClick={() => handleNavigate('what-we-offer')}>
                 What We Offer? <ChevronDown size={12} className="nav-chevron" />
               </a>
               <div className="dropdown-menu">
-                <a href="#what-we-offer" onClick={() => handleScrollTo('what-we-offer')}>Hall (3,000 sq ft)</a>
-                <a href="#what-we-offer" onClick={() => handleScrollTo('what-we-offer')}>Lawn (8,000 sq ft)</a>
-                <a href="#what-we-offer" onClick={() => handleScrollTo('what-we-offer')}>AC Rooms</a>
-                <a href="#what-we-offer" onClick={() => handleScrollTo('what-we-offer')}>Full Venue Combo</a>
+                <a href="#what-we-offer" onClick={() => handleNavigate('what-we-offer')}>Hall (3,000 sq ft)</a>
+                <a href="#what-we-offer" onClick={() => handleNavigate('what-we-offer')}>Lawn (8,000 sq ft)</a>
+                <a href="#what-we-offer" onClick={() => handleNavigate('what-we-offer')}>AC Rooms</a>
+                <a href="#what-we-offer" onClick={() => handleNavigate('what-we-offer')}>Full Venue Combo</a>
               </div>
             </div>
 
             {/* Perfect Venues Dropdown */}
             <div className="nav-item-dropdown">
-              <a href="#perfect-venues" className="nav-link dropdown-trigger" onClick={() => handleScrollTo('perfect-venues')}>
+              <a href="#perfect-venues" className="nav-link dropdown-trigger" onClick={() => handleNavigate('perfect-venues')}>
                 Perfect Venues <ChevronDown size={12} className="nav-chevron" />
               </a>
               <div className="dropdown-menu">
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Marriage Functions</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Wedding Receptions</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Ear Boring Ceremonies</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Birthday Parties</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Baby Shower</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Social Activities</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Puberty Function</a>
-                <a href="#perfect-venues" onClick={() => handleScrollTo('perfect-venues')}>Retirement & Any Functions</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Marriage Functions</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Wedding Receptions</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Ear Boring Ceremonies</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Birthday Parties</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Baby Shower</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Social Activities</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Puberty Function</a>
+                <a href="#perfect-venues" onClick={() => handleNavigate('perfect-venues')}>Retirement & Any Functions</a>
               </div>
             </div>
 
-            <a href="#amenities" className="nav-link" onClick={() => handleScrollTo('amenities')}>Facilities</a>
-            <a href="#ground-rules" className="nav-link" onClick={() => handleScrollTo('ground-rules')}>Ground Rules</a>
-            <a href="#blogs" className="nav-link" onClick={() => handleScrollTo('blogs')}>Blogs & Guides</a>
-            <a href="#contact" className="nav-link" onClick={() => handleScrollTo('contact')}>Contact Us</a>
+            <a href="#amenities" className="nav-link" onClick={() => handleNavigate('amenities')}>Facilities</a>
+            <a href="#ground-rules" className="nav-link" onClick={() => handleNavigate('ground-rules')}>Ground Rules</a>
+            <a href="#blogs" className="nav-link" onClick={(e) => { e.preventDefault(); handleNavigate('blogs'); }}>Blogs & Guides</a>
+            <a href="#contact" className="nav-link" onClick={() => handleNavigate('contact')}>Contact Us</a>
           </nav>
 
           <div className="nav-actions">
             <button 
               className="btn-nav-reserve"
-              onClick={() => handleScrollTo('contact')}
+              onClick={() => handleNavigate('contact')}
               onMouseEnter={() => setIsButtonHovered(true)}
               onMouseLeave={() => setIsButtonHovered(false)}
             >
@@ -261,7 +374,7 @@ function App() {
             <motion.div className="hero-actions" variants={fadeInUp}>
               <button 
                 className="btn-primary"
-                onClick={() => handleScrollTo('contact')}
+                onClick={() => handleNavigate('contact')}
                 onMouseEnter={() => setIsButtonHovered(true)}
                 onMouseLeave={() => setIsButtonHovered(false)}
               >
@@ -272,7 +385,7 @@ function App() {
               </button>
               <button 
                 className="btn-secondary"
-                onClick={() => handleScrollTo('what-we-offer')}
+                onClick={() => handleNavigate('what-we-offer')}
                 onMouseEnter={() => setIsButtonHovered(true)}
                 onMouseLeave={() => setIsButtonHovered(false)}
               >
@@ -310,7 +423,7 @@ function App() {
         >
           <div 
             className="scroll-badge-container" 
-            onClick={() => handleScrollTo('about')}
+            onClick={() => handleNavigate('about')}
           >
             <div className="orbit-ring ring-1"></div>
             <div className="orbit-ring ring-2"></div>
@@ -376,25 +489,26 @@ function App() {
       {/* 7. TESTIMONIALS */}
       <Testimonials />
 
-      {/* 8. BLOGS & EVENT PLANNING GUIDES (DYNAMIC) */}
-      <BlogsSection />
+      {/* NOTE: BlogsSection is hidden from landing section and present only in dynamic section */}
 
-      {/* 9. FAQ ACCORDION */}
+      {/* 8. FAQ ACCORDION */}
       <FAQ />
 
-      {/* 10. BOOKING INQUIRY FORM */}
+      {/* 9. BOOKING INQUIRY FORM */}
       <ContactForm />
 
-      {/* 11. FOOTER */}
-      <Footer />
+      {/* 10. FOOTER */}
+      <Footer onNavigate={handleNavigate} />
 
-      {/* 12. FLOATING WIDGETS (WHATSAPP + CALL) */}
+      {/* 11. FLOATING WIDGETS (WHATSAPP + CALL) */}
       <FloatingWidgets showContent={showContent} />
 
       {/* Mobile Navigation Elements */}
-      <BottomNavBar activeSection={activeSection} onNavigate={(targetId) => handleScrollTo(targetId)} />
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-    </div>
+      <BottomNavBar activeSection={activeSection} onNavigate={(targetId) => handleNavigate(targetId)} />
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} onNavigate={handleNavigate} />
+    </>
+  )}
+</div>
   );
 }
 

@@ -58,15 +58,19 @@ const itemVariants = {
   }
 };
 
-export default function MobileMenu({ isOpen, onClose }) {
+export default function MobileMenu({ isOpen, onClose, onNavigate }) {
   const handleLinkClick = (targetId) => {
     onClose();
     setTimeout(() => {
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+      if (onNavigate) {
+        onNavigate(targetId);
+      } else {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
       }
-    }, 300);
+    }, 250);
   };
 
   return (

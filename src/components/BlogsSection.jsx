@@ -10,6 +10,7 @@ import {
   Share2, 
   ArrowRight, 
   ArrowUpRight, 
+  ArrowLeft,
   Sparkles, 
   Check, 
   Send, 
@@ -20,11 +21,11 @@ import {
 } from 'lucide-react';
 import { BLOG_CATEGORIES, BLOG_POSTS } from '../data/blogsData';
 
-export default function BlogsSection() {
+export default function BlogsSection({ onBackToHome, onBookVenue, isDynamicView = false }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeArticle, setActiveArticle] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(BLOG_POSTS.length);
   const [copiedLink, setCopiedLink] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
@@ -134,16 +135,39 @@ export default function BlogsSection() {
 
   const handleBookVenueFromBlog = () => {
     setActiveArticle(null);
-    setTimeout(() => {
-      const el = document.getElementById('contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 200);
+    if (onBookVenue) {
+      onBookVenue();
+    } else {
+      setTimeout(() => {
+        const el = document.getElementById('contact');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    }
   };
 
   return (
-    <section className="blogs-section" id="blogs">
+    <section className={`blogs-section ${isDynamicView ? 'dynamic-blogs-page' : ''}`} id="blogs">
       <div className="section-container">
         
+        {/* Dynamic Section Navigation Breadcrumb */}
+        {onBackToHome && (
+          <div className="blogs-dynamic-breadcrumb-bar">
+            <button 
+              type="button" 
+              className="blogs-back-btn"
+              onClick={onBackToHome}
+            >
+              <ArrowLeft size={15} />
+              <span>Back to Main Site</span>
+            </button>
+            <div className="blogs-breadcrumb-trail">
+              <span className="trail-item link" onClick={onBackToHome}>Home</span>
+              <span className="trail-sep">/</span>
+              <span className="trail-item active">Dynamic Blogs & Guides</span>
+            </div>
+          </div>
+        )}
+
         {/* Section Header */}
         <div className="section-header-center">
           <span className="section-tag">
@@ -162,226 +186,235 @@ export default function BlogsSection() {
           </p>
         </div>
 
-        {/* Dynamic Controls: Search & Category Filter */}
-        <div className="blogs-controls-bar">
-          
-          {/* Real-time Search Input */}
-          <div className="blogs-search-wrapper">
-            <Search className="blogs-search-icon" size={16} />
-            <input 
-              type="text" 
-              className="blogs-search-input"
-              placeholder="Search articles, decor tips, rituals..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setVisibleCount(4);
-              }}
-            />
-            {searchQuery && (
-              <button 
-                type="button" 
-                className="blogs-search-clear" 
-                onClick={() => setSearchQuery('')}
-                aria-label="Clear search"
-              >
-                <X size={14} />
-              </button>
-            )}
-          </div>
+        {/* Content: Cards & Controls if posts exist, or Curation Notice when empty */}
+        {BLOG_POSTS.length > 0 ? (
+          <>
+            {/* Dynamic Controls: Search & Category Filter */}
+            <div className="blogs-controls-bar">
+              {/* Real-time Search Input */}
+              <div className="blogs-search-wrapper">
+                <Search className="blogs-search-icon" size={16} />
+                <input 
+                  type="text" 
+                  className="blogs-search-input"
+                  placeholder="Search articles, decor tips, rituals..."
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setVisibleCount(BLOG_POSTS.length);
+                  }}
+                />
+                {searchQuery && (
+                  <button 
+                    type="button" 
+                    className="blogs-search-clear" 
+                    onClick={() => setSearchQuery('')}
+                    aria-label="Clear search"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
 
-          {/* Category Filter Pills */}
-          <div className="blogs-category-pills">
-            {BLOG_CATEGORIES.map(cat => {
-              const isActive = selectedCategory === cat;
-              const count = categoryCounts[cat] || 0;
-              return (
-                <button
-                  key={cat}
+              {/* Category Filter Pills */}
+              <div className="blogs-category-pills">
+                {BLOG_CATEGORIES.map(cat => {
+                  const isActive = selectedCategory === cat;
+                  const count = categoryCounts[cat] || 0;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      className={`blog-filter-btn ${isActive ? 'active' : ''}`}
+                      onClick={() => {
+                        setSelectedCategory(cat);
+                        setVisibleCount(BLOG_POSTS.length);
+                      }}
+                    >
+                      <span>{cat}</span>
+                      <span className="filter-count-badge">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Search & Filter status summary */}
+            {(searchQuery || selectedCategory !== 'All') && (
+              <div className="blogs-filter-status">
+                <span>
+                  Showing <strong>{filteredPosts.length}</strong> {filteredPosts.length === 1 ? 'article' : 'articles'} 
+                  {selectedCategory !== 'All' && <> in <em>"{selectedCategory}"</em></>}
+                  {searchQuery && <> matching <em>"{searchQuery}"</em></>}
+                </span>
+                <button 
                   type="button"
-                  className={`blog-filter-btn ${isActive ? 'active' : ''}`}
+                  className="blogs-reset-filter-btn"
                   onClick={() => {
-                    setSelectedCategory(cat);
-                    setVisibleCount(4);
+                    setSelectedCategory('All');
+                    setSearchQuery('');
                   }}
                 >
-                  <span>{cat}</span>
-                  <span className="filter-count-badge">{count}</span>
+                  Reset Filters
                 </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Search & Filter status summary */}
-        {(searchQuery || selectedCategory !== 'All') && (
-          <div className="blogs-filter-status">
-            <span>
-              Showing <strong>{filteredPosts.length}</strong> {filteredPosts.length === 1 ? 'article' : 'articles'} 
-              {selectedCategory !== 'All' && <> in <em>"{selectedCategory}"</em></>}
-              {searchQuery && <> matching <em>"{searchQuery}"</em></>}
-            </span>
-            <button 
-              type="button"
-              className="blogs-reset-filter-btn"
-              onClick={() => {
-                setSelectedCategory('All');
-                setSearchQuery('');
-              }}
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
-
-        {/* Blog Posts Grid */}
-        {filteredPosts.length > 0 ? (
-          <div className="blogs-grid">
-            {filteredPosts.slice(0, visibleCount).map((post, idx) => {
-              const isLiked = likesState[post.id]?.hasLiked;
-              const likeCount = likesState[post.id]?.count ?? post.likes;
-
-              return (
-                <motion.article 
-                  key={post.id}
-                  className={`blog-card ${post.featured && idx === 0 && !searchQuery && selectedCategory === 'All' ? 'featured-card' : ''}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
-                  onClick={() => setActiveArticle(post)}
-                >
-                  {/* Card Image Area */}
-                  <div className="blog-card-media">
-                    <img 
-                      src={post.coverImage} 
-                      alt={post.title} 
-                      className="blog-card-img" 
-                      loading="lazy" 
-                    />
-                    <div className="blog-card-overlay"></div>
-
-                    {/* Category Tag Badge */}
-                    <div className="blog-card-badge-row">
-                      <span className="blog-category-tag">{post.category}</span>
-                      {post.featured && idx === 0 && (
-                        <span className="blog-featured-tag">
-                          <Sparkles size={11} /> Featured
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Like Button on Image */}
-                    <button 
-                      type="button" 
-                      className={`blog-like-btn ${isLiked ? 'liked' : ''}`}
-                      onClick={(e) => toggleLike(e, post.id)}
-                      aria-label="Like article"
-                    >
-                      <Heart size={15} fill={isLiked ? '#e2c2a4' : 'none'} />
-                      <span className="blog-like-count">{likeCount}</span>
-                    </button>
-                  </div>
-
-                  {/* Card Content Area */}
-                  <div className="blog-card-body">
-                    
-                    {/* Meta info (Date & Read time) */}
-                    <div className="blog-card-meta">
-                      <span className="blog-meta-item">
-                        <Calendar size={13} /> {post.publishedAt}
-                      </span>
-                      <span className="blog-meta-dot">•</span>
-                      <span className="blog-meta-item">
-                        <Clock size={13} /> {post.readTime}
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="blog-card-title">{post.title}</h3>
-
-                    {/* Excerpt */}
-                    <p className="blog-card-excerpt">{post.excerpt}</p>
-
-                    {/* Tags */}
-                    <div className="blog-card-tags">
-                      {post.tags.slice(0, 3).map((tag, tIdx) => (
-                        <span key={tIdx} className="blog-tag-pill">
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Footer: Author & Read CTA */}
-                    <div className="blog-card-footer">
-                      <div className="blog-author-info">
-                        <img 
-                          src={post.author.avatar} 
-                          alt={post.author.name} 
-                          className="blog-author-avatar"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                          }}
-                        />
-                        <div className="blog-author-text">
-                          <span className="blog-author-name">{post.author.name}</span>
-                          <span className="blog-author-role">{post.author.role}</span>
-                        </div>
-                      </div>
-
-                      <div className="blog-read-action">
-                        <span className="read-more-text">Read Article</span>
-                        <div className="read-more-icon-wrap">
-                          <ArrowRight size={14} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="blogs-empty-state">
-            <BookOpen size={48} className="empty-icon" />
-            <h3 className="empty-title">No matching guides found</h3>
-            <p className="empty-desc">
-              We couldn't find any articles matching "{searchQuery}". Try searching for another keyword like "lawn", "decor", or "muhurtham".
-            </p>
-            <button 
-              type="button" 
-              className="btn-primary empty-reset-btn"
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('All');
-              }}
-            >
-              Clear Search & Filters
-            </button>
-          </div>
-        )}
-
-        {/* Load More / Show Less Dynamic Pagination */}
-        {filteredPosts.length > 4 && (
-          <div className="blogs-pagination-row">
-            {visibleCount < filteredPosts.length ? (
-              <button 
-                type="button" 
-                className="btn-secondary blogs-load-more-btn"
-                onClick={() => setVisibleCount(prev => Math.min(prev + 3, filteredPosts.length))}
-              >
-                <span>Load More Articles</span>
-                <span className="count-indicator">({filteredPosts.length - visibleCount} remaining)</span>
-              </button>
-            ) : (
-              <button 
-                type="button" 
-                className="btn-secondary blogs-load-more-btn"
-                onClick={() => setVisibleCount(4)}
-              >
-                <span>Show Less</span>
-              </button>
+              </div>
             )}
+
+            {/* Blog Posts Grid */}
+            {filteredPosts.length > 0 ? (
+              <div className="blogs-grid">
+                {filteredPosts.slice(0, visibleCount).map((post, idx) => {
+                  const isLiked = likesState[post.id]?.hasLiked;
+                  const likeCount = likesState[post.id]?.count ?? post.likes;
+
+                  return (
+                    <motion.article 
+                      key={post.id}
+                      className={`blog-card ${post.featured && idx === 0 && !searchQuery && selectedCategory === 'All' ? 'featured-card' : ''}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-50px' }}
+                      transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                      onClick={() => setActiveArticle(post)}
+                    >
+                      {/* Card Image Area */}
+                      <div className="blog-card-media">
+                        <img 
+                          src={post.coverImage} 
+                          alt={post.title} 
+                          className="blog-card-img" 
+                          loading="lazy" 
+                        />
+                        <div className="blog-card-overlay"></div>
+
+                        {/* Category Tag Badge */}
+                        <div className="blog-card-badge-row">
+                          <span className="blog-category-tag">{post.category}</span>
+                          {post.featured && idx === 0 && (
+                            <span className="blog-featured-tag">
+                              <Sparkles size={11} /> Featured
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Like Button on Image */}
+                        <button 
+                          type="button" 
+                          className={`blog-like-btn ${isLiked ? 'liked' : ''}`}
+                          onClick={(e) => toggleLike(e, post.id)}
+                          aria-label="Like article"
+                        >
+                          <Heart size={15} fill={isLiked ? '#e2c2a4' : 'none'} />
+                          <span className="blog-like-count">{likeCount}</span>
+                        </button>
+                      </div>
+
+                      {/* Card Content Area */}
+                      <div className="blog-card-body">
+                        {/* Meta info (Date & Read time) */}
+                        <div className="blog-card-meta">
+                          <span className="blog-meta-item">
+                            <Calendar size={13} /> {post.publishedAt}
+                          </span>
+                          <span className="blog-meta-dot">•</span>
+                          <span className="blog-meta-item">
+                            <Clock size={13} /> {post.readTime}
+                          </span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="blog-card-title">{post.title}</h3>
+
+                        {/* Excerpt */}
+                        <p className="blog-card-excerpt">{post.excerpt}</p>
+
+                        {/* Tags */}
+                        <div className="blog-card-tags">
+                          {post.tags.slice(0, 3).map((tag, tIdx) => (
+                            <span key={tIdx} className="blog-tag-pill">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Footer: Author & Read CTA */}
+                        <div className="blog-card-footer">
+                          <div className="blog-author-info">
+                            <img 
+                              src={post.author.avatar} 
+                              alt={post.author.name} 
+                              className="blog-author-avatar"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                              }}
+                            />
+                            <div className="blog-author-text">
+                              <span className="blog-author-name">{post.author.name}</span>
+                              <span className="blog-author-role">{post.author.role}</span>
+                            </div>
+                          </div>
+
+                          <div className="blog-read-action">
+                            <span className="read-more-text">Read Article</span>
+                            <div className="read-more-icon-wrap">
+                              <ArrowRight size={14} />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.article>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="blogs-empty-state">
+                <BookOpen size={48} className="empty-icon" />
+                <h3 className="empty-title">No matching guides found</h3>
+                <p className="empty-desc">
+                  We couldn't find any articles matching "{searchQuery}".
+                </p>
+                <button 
+                  type="button" 
+                  className="btn-primary empty-reset-btn"
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSelectedCategory('All');
+                  }}
+                >
+                  Clear Search & Filters
+                </button>
+              </div>
+            )}
+
+            {/* Load More / Show Less Dynamic Pagination */}
+            {filteredPosts.length > visibleCount && (
+              <div className="blogs-pagination-row">
+                <button 
+                  type="button" 
+                  className="btn-secondary blogs-load-more-btn"
+                  onClick={() => setVisibleCount(prev => Math.min(prev + 6, filteredPosts.length))}
+                >
+                  <span>Load More Articles</span>
+                  <span className="count-indicator">({filteredPosts.length - visibleCount} remaining)</span>
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="blogs-curation-notice">
+            <div className="curation-notice-card">
+              <div className="curation-badge">
+                <Sparkles size={14} />
+                <span>IN CURATION</span>
+              </div>
+              <h3 className="curation-title">Event Guides & Articles Coming Soon</h3>
+              <p className="curation-desc">
+                Our hospitality and event curation team is crafting new wedding guides, mandap decor trends, and catering insights for Coimbatore celebrations.
+              </p>
+              <p className="curation-subtext">
+                In the meantime, you can request our complimentary 2026 wedding checklist below or get in touch with our team for venue walkthroughs.
+              </p>
+            </div>
           </div>
         )}
 
@@ -435,6 +468,28 @@ export default function BlogsSection() {
             </div>
           </div>
         </div>
+
+        {/* Dynamic Section Bottom Return / Booking Bar */}
+        {onBackToHome && (
+          <div className="blogs-dynamic-bottom-bar">
+            <button 
+              type="button" 
+              className="btn-secondary blogs-return-btn"
+              onClick={onBackToHome}
+            >
+              <ArrowLeft size={15} />
+              <span>Return to Main Site</span>
+            </button>
+            <button 
+              type="button" 
+              className="btn-primary blogs-reserve-btn"
+              onClick={onBookVenue || onBackToHome}
+            >
+              <span>Book Celebration at Mahotsav</span>
+              <ArrowUpRight size={14} />
+            </button>
+          </div>
+        )}
 
       </div>
 
