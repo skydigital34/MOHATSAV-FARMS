@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   ArrowUpRight, 
@@ -9,7 +9,7 @@ import {
   ChevronDown 
 } from 'lucide-react';
 import './App.css';
-import heroReelVideo from './assets/heroreel.mp4';
+import heroVideo from './assets/now mohatsaw ready.mp4';
 
 import AboutUs from './components/AboutUs';
 import WhatWeOffer from './components/WhatWeOffer';
@@ -79,6 +79,16 @@ function App() {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   const [currentView, setCurrentView] = useState(() => {
     if (typeof window !== 'undefined' && window.location.hash === '#blogs') {
       return 'blogs';
@@ -250,14 +260,19 @@ function App() {
 
         {/* Background Autoplay Video */}
         <video 
+          ref={videoRef}
           className="hero-video"
-          src={heroReelVideo} 
-          poster="/hero/day2.png"
+          src={heroVideo} 
           preload="auto"
           autoPlay 
           loop
           muted 
           playsInline
+          onPlaying={() => {
+            setTimeout(() => {
+              setShowContent(true);
+            }, 3000);
+          }}
         />
         
         {/* Dark overlay */}
