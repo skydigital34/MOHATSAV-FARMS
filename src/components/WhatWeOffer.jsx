@@ -7,7 +7,7 @@ const offers = [
     id: 'hall',
     title: 'AC INDOOR HALL',
     icon: Building2,
-    bgImg: '/villa_arched.png',
+    bgImg: '/offersectionimg/acindoor.png',
     desc: 'Spacious air-conditioned indoor hall featuring elegant lighting, raised stage area, and premium acoustics for wedding ceremonies, stage programs, and receptions.',
     capacity: '200 Seated / 350 Floating',
     pricing: [
@@ -20,7 +20,7 @@ const offers = [
     id: 'lawn',
     title: 'LUSH OUTDOOR LAWN',
     icon: Trees,
-    bgImg: '/ocean_card.png',
+    bgImg: '/offersectionimg/outdoorlown.png',
     desc: 'Extensive manicured green lawn surrounded by palms—ideal for grand evening receptions, open-sky buffet dining, live music, and festive gatherings.',
     capacity: '400 Seated / 800 Floating',
     pricing: [
@@ -33,7 +33,7 @@ const offers = [
     id: 'rooms',
     title: 'AC Guest Rooms',
     icon: Bed,
-    bgImg: '/suites_card.png',
+    bgImg: '/offersectionimg/goustroom.png',
     desc: 'Comfortable air-conditioned rooms designed with full-length vanity mirrors, private attached bathrooms, and relaxation lounges for the bride, groom, and family.',
     capacity: '4 Air-Conditioned Rooms Available (2 Guest & 2 Bridal)',
     pricing: [
@@ -44,7 +44,7 @@ const offers = [
     id: 'full-venue',
     title: 'Full Venue Combo',
     icon: Sparkles,
-    bgImg: '/pool_preview.png',
+    bgImg: '/offersectionimg/fullvenuw%20cambo.png',
     desc: 'The ultimate celebration package! Exclusive access to the entire 3,000 sq ft hall, 8,000 sq ft lawn, dining area, and 4 AC rooms for a seamless grand event.',
     capacity: 'Up to 1,200 Total Guests',
     pricing: [

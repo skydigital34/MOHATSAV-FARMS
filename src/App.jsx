@@ -9,7 +9,8 @@ import {
   ChevronDown 
 } from 'lucide-react';
 import './App.css';
-import heroVideo from './assets/now mohatsaw ready.mp4';
+
+const heroVideo = '/5nal.mp4';
 
 import AboutUs from './components/AboutUs';
 import WhatWeOffer from './components/WhatWeOffer';
