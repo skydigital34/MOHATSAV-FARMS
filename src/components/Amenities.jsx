@@ -34,18 +34,18 @@ const amenityItems = [
   },
   {
     icon: ChefHat,
-    title: 'Modern Cooking & Catering Area',
-    desc: 'Spacious, hygienic kitchen space equipped for large-scale traditional cooking and live food counters.',
+    title: 'Small Kitchen Area',
+    desc: 'Clean and dedicated small kitchen area equipped for food preparation and catering service.',
   },
   {
     icon: UtensilsCrossed,
-    title: 'Spacious Dining Hall',
-    desc: 'Dedicated dining hall accommodating traditional South Indian leaf service and modern buffet counters.',
+    title: '3,000 Sq.Ft Dining Hall',
+    desc: 'Dedicated 3,000 sq.ft dining hall accommodating traditional South Indian leaf service and modern buffet counters.',
   },
   {
     icon: Zap,
     title: '100% Power Generator Backup',
-    desc: 'Heavy-duty power generator setup guaranteeing uninterrupted electricity for stage lighting, sound, and AC.',
+    desc: '100% power generator backup for the venue guaranteeing uninterrupted electricity for stage lighting, sound, and AC.',
   },
   {
     icon: Sparkles,

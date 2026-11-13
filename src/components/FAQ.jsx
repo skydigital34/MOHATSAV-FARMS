@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "What amenities are included with the hall rental?",
-    a: "The rental includes access to 4 AC rooms (2 guest & 2 bridal), on-site parking for up to 100 cars, 2 entrance gates for smooth valet flow, modern kitchen & catering space, spacious dining hall, heavy-duty generator power backup, and dedicated venue maintenance staff."
+    a: "The rental includes access to 4 AC rooms (2 guest & 2 bridal), on-site parking for up to 100 cars, 2 entrance gates for smooth valet flow, small kitchen area, 3,000 sq.ft dining hall, 100% power generator backup for the venue, and dedicated venue maintenance staff."
   },
   {
     q: "Can I decorate the hall for my event?",
@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "What is the booking process and rental fee?",
-    a: "Booking is confirmed upon receiving a 50% deposit. Rental fees are transparent and flexible: individual sessions start from ₹15,000 (morning) / ₹15,000 (evening) for the Hall or Lawn, up to ₹70,000 for a full 24-hour complete venue combo (Hall + Lawn + 4 AC Rooms). Individual AC rooms are priced at ₹2,500 + tax per day."
+    a: "Booking is confirmed upon receiving a 50% deposit. Rental fees are transparent and flexible: Indoor Hall is ₹20,000 (Half Day) / ₹40,000 (Full Day), Outdoor Lawn is ₹40,000 (Half Day) / ₹70,000 (Full Day), and Full Venue Combo is ₹45,000 (Half Day) / ₹90,000 (Full Day). Individual AC rooms are priced at ₹2,500 + tax per day."
   }
 ];
 

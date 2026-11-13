@@ -21,12 +21,12 @@ const eventTypes = [
     title: 'Marriage Functions',
     tagline: 'Kalyana Mandapam & Muhurthams',
     icon: Heart,
-    bgImg: '/occationsimg/marriage.png',
+    bgImg: '/occationsimg/marriage.jpg',
     shortDesc: 'Traditional wedding ceremonies with spacious stage arrangements, AC bridal preparation suites, and banana leaf dining.',
     highlights: [
       '3,000 sq ft AC Banquet Hall seating 200+ guests',
       '2 AC Bridal Suites & 3 Guest Rooms on premises',
-      'Dedicated commercial kitchen for traditional feast preparation',
+      'Small kitchen area and 3,000 sq.ft dining hall for catering setup',
       'Full 100% generator power backup for uninterrupted muhurtham'
     ],
     guidelines: [
@@ -41,7 +41,7 @@ const eventTypes = [
     title: 'Wedding Receptions',
     tagline: 'Grand Open-Air & AC Receptions',
     icon: Sparkles,
-    bgImg: '/offersectionimg/outdoorlown.png',
+    bgImg: '/occationsimg/reception.jpg',
     shortDesc: 'Stunning evening celebrations combining our illuminated 8,000 sq ft lawn and indoor hall for floating crowds up to 800.',
     highlights: [
       'Illuminated lawn setup for open-sky buffet dining',
@@ -77,7 +77,7 @@ const eventTypes = [
     title: 'Birthday Parties',
     tagline: 'Kids & Milestone Celebrations',
     icon: Cake,
-    bgImg: '/occationsimg/birthday.png',
+    bgImg: '/occationsimg/birthday.jpg',
     shortDesc: 'Vibrant party venue for kids birthdays, 50th milestone celebrations, and evening family get-togethers with custom decor.',
     highlights: [
       'Open lawn space for fun games & bouncy castle setups',
@@ -95,7 +95,7 @@ const eventTypes = [
     title: 'Baby Shower / Valaikappu',
     tagline: 'Seemantham Ceremonies',
     icon: Heart,
-    bgImg: '/occationsimg/valaikappu.png',
+    bgImg: '/occationsimg/valaikappu.jpg',
     shortDesc: 'Warm, cozy, and blessed environment for traditional seemantham ceremonies surrounded by family and close friends.',
     highlights: [
       'Peaceful green surroundings with soothing acoustics',
@@ -112,7 +112,7 @@ const eventTypes = [
     title: 'Social & Corporate Meets',
     tagline: 'Reunions, BNI & Club Events',
     icon: Users2,
-    bgImg: '/occationsimg/corparate.png',
+    bgImg: '/occationsimg/corparate.jpg',
     shortDesc: 'Ideal location for alumni reunions, corporate annual meets, BNI networking, and cultural organization get-togethers.',
     highlights: [
       'Podium, microphone, and presentation screen connectivity',
@@ -129,12 +129,12 @@ const eventTypes = [
     title: 'Puberty Function',
     tagline: 'Rithu Shudhi Celebrations',
     icon: PartyPopper,
-    bgImg: '/occationsimg/puperty.png',
+    bgImg: '/occationsimg/puperty.jpg',
     shortDesc: 'Traditional puberty rites honoring family heritage with elegant floral stage decor and authentic vegetarian dining.',
     highlights: [
       'Spacious AC stage area for traditional seating & floral backdrops',
       'AC rooms for family grooming and dress changes',
-      'Dedicated dining hall for leaf service feast'
+      'Dedicated 3,000 sq.ft dining hall for leaf service feast'
     ],
     guidelines: [
       'Fire-pit ritual safety guidelines must be followed on stage',
@@ -146,7 +146,7 @@ const eventTypes = [
     title: 'Retirement Party & Any Functions',
     tagline: 'Milestone Felicitations & Bespoke Gatherings',
     icon: Award,
-    bgImg: '/occationsimg/retirement.png',
+    bgImg: '/occationsimg/retirement.jpg',
     shortDesc: 'Celebrate remarkable career milestones, retirement felicitations, family jubilees, or any custom celebration in total comfort and grandeur.',
     highlights: [
       'Elevated stage with audio-visual connectivity & mic for tributes & speeches',

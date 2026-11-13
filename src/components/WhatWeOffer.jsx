@@ -7,26 +7,24 @@ const offers = [
     id: 'hall',
     title: 'AC INDOOR HALL',
     icon: Building2,
-    bgImg: '/offersectionimg/acindoor.png',
+    bgImg: '/occationsimg/acindoor.png',
     desc: 'Spacious air-conditioned indoor hall featuring elegant lighting, raised stage area, and premium acoustics for wedding ceremonies, stage programs, and receptions.',
     capacity: '200 Seated / 350 Floating',
     pricing: [
-      { label: 'Full Day (24 Hours)', price: '₹30,000' },
-      { label: 'Morning Session', price: '₹15,000' },
-      { label: 'Evening Session', price: '₹15,000' }
+      { label: 'Half Day', price: '₹20,000' },
+      { label: 'Full Day (24 Hours)', price: '₹40,000' }
     ]
   },
   {
     id: 'lawn',
     title: 'LUSH OUTDOOR LAWN',
     icon: Trees,
-    bgImg: '/offersectionimg/outdoorlown.png',
+    bgImg: '/indoorlown.png',
     desc: 'Extensive manicured green lawn surrounded by palms—ideal for grand evening receptions, open-sky buffet dining, live music, and festive gatherings.',
     capacity: '400 Seated / 800 Floating',
     pricing: [
-      { label: 'Full Day (24 Hours)', price: '₹40,000' },
-      { label: 'Morning Session', price: '₹20,000' },
-      { label: 'Evening Session', price: '₹20,000' }
+      { label: 'Half Day', price: '₹40,000' },
+      { label: 'Full Day (24 Hours)', price: '₹70,000' }
     ]
   },
   {
@@ -44,13 +42,12 @@ const offers = [
     id: 'full-venue',
     title: 'Full Venue Combo',
     icon: Sparkles,
-    bgImg: '/offersectionimg/fullvenuw%20cambo.png',
-    desc: 'The ultimate celebration package! Exclusive access to the entire 3,000 sq ft hall, 8,000 sq ft lawn, dining area, and 4 AC rooms for a seamless grand event.',
+    bgImg: '/fullvenue.png',
+    desc: 'The ultimate celebration package! Exclusive access to the entire 3,000 sq ft hall, 8,000 sq ft lawn, 3,000 sq ft dining hall, and 4 AC rooms for a seamless grand event.',
     capacity: 'Up to 1,200 Total Guests',
     pricing: [
-      { label: 'Full 24-Hour Venue Package', price: '₹70,000' },
-      { label: 'Morning Session Combo', price: '₹35,000' },
-      { label: 'Evening Session Combo', price: '₹35,000' }
+      { label: 'Half Day', price: '₹45,000' },
+      { label: 'Full Day (24 Hours)', price: '₹90,000' }
     ],
     isPopular: true
   }

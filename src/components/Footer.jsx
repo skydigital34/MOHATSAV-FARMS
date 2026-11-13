@@ -95,7 +95,7 @@ export default function Footer({ onNavigate }) {
               <li>
                 <Phone className="contact-icon" size={16} />
                 <div className="footer-phones">
-                  <a href="tel:+919994157721">+91 99941 57721</a>
+                  <a href="tel:+919600722590">+91 96007 22590</a>
                 </div>
               </li>
               <li>
