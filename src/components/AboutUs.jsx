@@ -75,7 +75,7 @@ export default function AboutUs() {
             </h3>
 
             <p className="about-text">
-              Nestled near Ragavendra Garden in Veerakeralam, Coimbatore, Mahotsav Farms provides an serene ambiance surrounded by nature. Whether you are hosting a traditional Kalyana Mandapam wedding or an open-air evening reception, our flexible spaces accommodate your every desire.
+              Nestled near Ragavendra Garden in Veerakeralam, Coimbatore, Mahotsav Farms provides a serene ambiance surrounded by nature. Whether you are hosting a traditional Kalyana Mandapam wedding or an open-air evening reception, our flexible spaces accommodate your every desire.
             </p>
 
             {/* Two Key Feature Blurbs */}

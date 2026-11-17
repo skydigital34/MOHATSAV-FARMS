@@ -10,8 +10,6 @@ import {
 } from 'lucide-react';
 import './App.css';
 
-const heroVideo = '/5nal.mp4';
-
 import AboutUs from './components/AboutUs';
 import WhatWeOffer from './components/WhatWeOffer';
 import PerfectVenues from './components/PerfectVenues';
@@ -76,19 +74,10 @@ const sidebarVariants = {
 };
 
 function App() {
-  const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(true);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-    }
-  }, []);
 
   const [currentView, setCurrentView] = useState(() => {
     if (typeof window !== 'undefined' && window.location.hash === '#blogs') {
@@ -113,10 +102,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 3000);
-
     const observerOptions = {
       root: null,
       rootMargin: '-30% 0px -40% 0px',
@@ -146,7 +131,6 @@ function App() {
     sections.forEach(s => observer.observe(s));
 
     return () => {
-      clearTimeout(timer);
       sections.forEach(s => observer.unobserve(s));
     };
   }, [currentView]);
@@ -250,40 +234,17 @@ function App() {
         </div>
       ) : (
         <>
-          {/* 1. HERO SECTION (KEPT INTACT AS REQUESTED) */}
+          {/* 1. HERO SECTION */}
           <div className="hero-container" id="home">
-        {/* Background Hover Image */}
-        <img 
-          src="/night2.png" 
-          alt="Mahotsav Farms Night" 
-          className={`hero-background-night ${isButtonHovered ? 'visible' : ''}`}
-        />
-
-        {/* Background Autoplay Video */}
-        <video 
-          ref={videoRef}
-          className="hero-video"
-          src={heroVideo} 
-          preload="auto"
-          autoPlay 
-          loop
-          muted 
-          playsInline
-          onPlaying={() => {
-            setTimeout(() => {
-              setShowContent(true);
-            }, 3000);
-          }}
-        />
-        
-        {/* Dark overlay */}
-        <div className="video-overlay"></div>
-
-        {/* Left fading glass panel */}
-        <div className={`left-glass-panel ${showContent ? 'visible' : ''}`}></div>
-
-        {/* Background ambient glow */}
-        <div className="hero-ambient-glow"></div>
+            {/* Background Hero Image */}
+            <img 
+              src="/hero-stage.jpg" 
+              alt="Mahotsav Farms Venue Stage" 
+              className="hero-background-image visible" 
+            />
+            
+            {/* Subtle scrim overlay so the background remains clear and vibrant */}
+            <div className="video-overlay"></div>
 
         {/* NAVIGATION BAR */}
         <motion.header 
