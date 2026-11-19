@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Star, 
@@ -163,6 +163,29 @@ export default function Testimonials() {
     return () => clearInterval(timer);
   }, [activeIndex, filteredReviews.length]);
 
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 45) {
+      handleNext();
+    } else if (distance < -45) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const handlePrev = () => {
     setDirection(-1);
     setActiveIndex((prev) => (prev === 0 ? filteredReviews.length - 1 : prev - 1));
@@ -274,7 +297,12 @@ export default function Testimonials() {
 
           {/* Right panel: Sliding Card */}
           <div className="testimonials-slide-panel">
-            <div className="testimonial-card-container">
+            <div 
+              className="testimonial-card-container"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={`${selectedTopic}-${activeIndex}`}
