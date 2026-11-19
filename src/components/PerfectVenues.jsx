@@ -179,16 +179,16 @@ export default function PerfectVenues() {
         
         {/* Header */}
         <div className="section-header-center">
-          <span className="section-tag">PERFECT VENUE FOR EVERY OCCASION</span>
+          <span className="section-tag">PERFECT VENUE FOR EVERY CELEBRATION</span>
           <h2 className="section-title">
-            LUXURY AC BANQUET HALLS & OPEN LAWNS<br />
-            <span className="highlight-serif">FOR EVENTS IN COIMBATORE</span>
+            YOUR PERFECT VENUE FOR<br />
+            <span className="highlight-serif">EVERY CELEBRATION</span>
           </h2>
           <div className="header-divider-center">
             <span className="divider-dot"></span>
           </div>
           <p className="section-desc-center">
-            From grand wedding muhurthams to intimate family milestones and corporate reunions, Mahotsav Farms provides the ideal setting with tailored guidelines for every event.
+            Make every occasion unforgettable at Mahotsav Farms. Discover beautifully designed indoor and outdoor spaces, offering the perfect setting for weddings, family gatherings, and special celebrations.
           </p>
         </div>
 

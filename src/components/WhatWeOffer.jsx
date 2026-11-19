@@ -19,7 +19,7 @@ const offers = [
     id: 'lawn',
     title: 'LUSH OUTDOOR LAWN',
     icon: Trees,
-    bgImg: '/indoorlown.png',
+    bgImg: '/outdoorlawn.jpg',
     desc: 'Extensive manicured green lawn surrounded by palms—ideal for grand evening receptions, open-sky buffet dining, live music, and festive gatherings.',
     capacity: '400 Seated / 800 Floating',
     pricing: [

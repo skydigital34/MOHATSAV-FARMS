@@ -236,12 +236,15 @@ function App() {
         <>
           {/* 1. HERO SECTION */}
           <div className="hero-container" id="home">
-            {/* Background Hero Image */}
-            <img 
-              src="/hero-stage.jpg" 
-              alt="Mahotsav Farms Venue Stage" 
-              className="hero-background-image visible" 
-            />
+            {/* Background Hero Image with Mobile & Desktop Optimization */}
+            <picture className="hero-background-picture">
+              <source media="(max-width: 768px), (orientation: portrait)" srcSet="/hero-stage-mobile.jpg" />
+              <img 
+                src="/hero-stage.jpg" 
+                alt="Mahotsav Farms Venue Stage" 
+                className="hero-background-image visible" 
+              />
+            </picture>
             
             {/* Subtle scrim overlay so the background remains clear and vibrant */}
             <div className="video-overlay"></div>
@@ -339,13 +342,13 @@ function App() {
           {/* Left text and action block */}
           <div className="hero-text-block">
             <motion.h1 className="hero-heading" variants={fadeInUp}>
-              Crafting<br />
-              <span className="highlight">the art</span><br />
-              of celebration
+              Your Perfect Venue<br />
+              <span className="highlight">for Every</span><br />
+              Celebration
             </motion.h1>
 
             <motion.p className="hero-description" variants={fadeInUp}>
-              Luxury, serenity, and unforgettable moments for your premium weddings and event celebrations in Coimbatore.
+              Make every occasion unforgettable at Mahotsav Farms. Discover beautifully designed indoor and outdoor spaces, offering the perfect setting for weddings, family gatherings, and special celebrations.
             </motion.p>
 
             <motion.div className="hero-actions" variants={fadeInUp}>
@@ -370,28 +373,9 @@ function App() {
               </button>
             </motion.div>
           </div>
-
-          {/* Right Glassmorphic Preview Card */}
-          <motion.div className="experience-card-wrapper" variants={fadeInUp}>
-            <div className="experience-card">
-              <div className="card-text">
-                <h3 className="card-label">Experience<br />Unparalleled</h3>
-                <p className="card-description">
-                  An extraordinary retreat crafted for the world's most discerning travelers.
-                </p>
-              </div>
-              <div className="card-preview-img-container">
-                <img 
-                  src="/pool_preview.png" 
-                  alt="Pool Preview" 
-                  className="card-preview-img" 
-                />
-              </div>
-            </div>
-          </motion.div>
         </motion.main>
 
-        {/* HERO FOOTER (INTACT) */}
+        {/* HERO FOOTER */}
         <motion.footer 
           className="hero-footer"
           initial={{ opacity: 0 }}
@@ -422,12 +406,6 @@ function App() {
               </text>
             </svg>
             <ArrowDown className="scroll-arrow-icon" size={16} />
-          </div>
-
-          <div className="carousel-counter">
-            <span className="counter-current">01</span>
-            <div className="counter-line"></div>
-            <span className="counter-total">04</span>
           </div>
         </motion.footer>
 
